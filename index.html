@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>基础德语2 AI课程 — 智慧验收汇报</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { 
+    font-family:'Noto Sans SC',sans-serif; 
+    background:#0f172a; color:#f1f5f9; 
+    overflow:hidden; height:100vh; 
+    /* 投屏优化：锁定 16:9 */
+    aspect-ratio: 16/9;
+    max-height:100vh; max-width:177.78vh;
+    margin:0 auto;
+  }
+  .slide-container { position:relative; width:100%; height:100%; }
+  .slide {
+    position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:80px 100px; opacity:0; transform:translateY(30px); transition:all .5s ease;
+    pointer-events:none;
+  }
+  .slide.active { opacity:1; transform:translateY(0); pointer-events:auto; }
+  .slide.cover { background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 40%,#0f172a 100%); }
+  .slide.section-header { background:linear-gradient(135deg,#1e3a5f 0%,#0f172a 100%); }
+  .slide.content { background:#0f172a; }
+
+  .cover-title { font-size:4.2em; font-weight:900; text-align:center; line-height:1.3; }
+  .cover-title .de { color:#fbbf24; font-family:'Playfair Display',serif; font-style:italic; }
+  .cover-subtitle { font-size:1.6em; color:#94a3b8; margin-top:24px; font-weight:300; }
+  .cover-info { display:flex; gap:60px; margin-top:48px; color:#64748b; font-size:1.1em; }
+  .cover-accent { width:100px; height:4px; background:linear-gradient(90deg,#dd2626,#fbbf24,#000); margin:36px auto 0; border-radius:2px; }
+
+  .section-num { font-size:7em; font-weight:900; color:rgba(251,191,36,.1); position:absolute; top:32px; left:60px; line-height:1; }
+  .section-title { font-size:3.2em; font-weight:700; text-align:center; position:relative; z-index:1; }
+  .section-divider { width:80px; height:4px; background:#fbbf24; margin:28px auto; border-radius:2px; }
+
+  .content-title { font-size:2.4em; font-weight:700; margin-bottom:36px; text-align:center; color:#fbbf24; }
+  .content-body { max-width:1000px; width:100%; line-height:1.9; font-size:1.25em; }
+  .content-body p { margin-bottom:20px; color:#cbd5e1; }
+  .content-body strong { color:#fbbf24; }
+
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:36px; max-width:1100px; width:100%; }
+  .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; max-width:1200px; width:100%; }
+  .card { background:rgba(30,58,95,.4); border:1px solid rgba(251,191,36,.15); border-radius:14px; padding:28px 32px; }
+  .card h3 { color:#fbbf24; font-size:1.25em; margin-bottom:12px; }
+  .card p { color:#94a3b8; font-size:1.05em; line-height:1.7; }
+  .card-num { font-size:2.4em; font-weight:900; color:rgba(251,191,36,.2); margin-bottom:10px; }
+
+  .highlight-box { background:rgba(251,191,36,.08); border-left:4px solid #fbbf24; padding:20px 32px; border-radius:0 10px 10px 0; margin:20px 0; }
+  .highlight-box p { color:#e2e8f0; font-size:1.15em; line-height:1.7; }
+
+  .flow-row { display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; max-width:1100px; margin:24px 0; }
+  .flow-step { background:rgba(30,58,95,.5); border:1px solid rgba(251,191,36,.2); border-radius:12px; padding:18px 28px; text-align:center; }
+  .flow-step .name { font-weight:700; color:#fbbf24; font-size:1.1em; }
+  .flow-step .desc { color:#94a3b8; font-size:.9em; margin-top:6px; }
+  .flow-arrow { color:#fbbf24; font-size:1.8em; font-weight:700; }
+
+  .tag { display:inline-block; background:rgba(251,191,36,.12); color:#fbbf24; padding:6px 16px; border-radius:24px; font-size:.95em; margin:6px; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1100px; width:100%; }
+  .col-label { color:#fbbf24; font-weight:700; font-size:1.25em; margin-bottom:16px; }
+
+  ul.checklist { list-style:none; max-width:1000px; width:100%; }
+  ul.checklist li { padding:16px 0 16px 40px; position:relative; border-bottom:1px solid rgba(148,163,184,.1); color:#cbd5e1; line-height:1.7; font-size:1.1em; }
+  ul.checklist li::before { content:'▸'; position:absolute; left:0; color:#fbbf24; font-weight:700; font-size:1.2em; }
+
+  .progress-bar { width:100%; max-width:500px; height:6px; background:rgba(148,163,184,.15); border-radius:3px; margin:16px auto; }
+  .progress-fill { height:100%; background:linear-gradient(90deg,#fbbf24,#dd2626); border-radius:3px; transition:width 1s ease; }
+
+  .end-title { font-size:3.6em; font-weight:900; text-align:center; }
+  .end-subtitle { font-size:1.4em; color:#94a3b8; margin-top:20px; font-weight:300; }
+
+  /* Navigation */
+  .nav-dots { position:fixed; bottom:32px; left:50%; transform:translateX(-50%); display:flex; gap:14px; z-index:100; }
+  .nav-dot { width:14px; height:14px; border-radius:50%; background:rgba(148,163,184,.3); cursor:pointer; transition:all .3s; }
+  .nav-dot.active { background:#fbbf24; transform:scale(1.4); }
+  .nav-hint { position:fixed; bottom:70px; left:50%; transform:translateX(-50%); color:rgba(148,163,184,.4); font-size:.85em; z-index:100; }
+
+  .slide-counter { position:fixed; top:28px; right:40px; color:#64748b; font-size:1em; z-index:100; }
+
+  /* 投屏专用：超宽屏优化 */
+  @media (min-width:1600px) {
+    .slide { padding:100px 140px; }
+    .content-body { max-width:1200px; font-size:1.35em; }
+    .grid-2 { max-width:1300px; }
+    .grid-3 { max-width:1400px; }
+    .cover-title { font-size:5em; }
+  }
+  /* 触屏翻页支持 */
+  .slide-container { touch-action:pan-y; }
+</style>
+</head>
+<body>
+
+<div class="slide-container" id="slides">
+
+  <!-- Slide 0: Cover -->
+  <div class="slide cover active" data-index="0">
+    <div class="cover-title"><span class="de">Grundkurs Deutsch 2</span><br>AI+智慧课程验收汇报</div>
+    <div class="cover-subtitle">基于学习通平台 · 广东外语大学南国商学院</div>
+    <div class="cover-accent"></div>
+    <div class="cover-info">
+      <span>📚 基础德语2</span><span>🤖 AI+课程升级</span><span>📊 6大模块</span>
+    </div>
+  </div>
+
+  <!-- Slide 1: 目录 -->
+  <div class="slide content" data-index="1">
+    <div class="content-title">汇报结构</div>
+    <div class="grid-2">
+      <div class="card"><div class="card-num">01</div><h3>问题诊断</h3><p>德语零起点教学中的AI融合困境与突破方向</p></div>
+      <div class="card"><div class="card-num">02</div><h3>学情分析</h3><p>学习通数据驱动的学生画像与个性化策略闭环</p></div>
+      <div class="card"><div class="card-num">03</div><h3>AI+内容设计</h3><p>人机协同、敏捷响应的课程体系升级</p></div>
+      <div class="card"><div class="card-num">04</div><h3>数字人设计</h3><p>德语发音示范与对话练习的数字化身</p></div>
+      <div class="card"><div class="card-num">05</div><h3>智能体设计</h3><p>助教·学伴·功能智能体的三位一体</p></div>
+      <div class="card"><div class="card-num">06</div><h3>项目化作业</h3><p>从"解决问题"到"提出问题"的范式转变</p></div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Section 1 Header -->
+  <div class="slide section-header" data-index="2">
+    <div class="section-num">01</div>
+    <div class="section-title">问题诊断</div>
+    <div class="section-divider"></div>
+    <div style="color:#94a3b8;margin-top:12px;font-size:1.1em;">AI技术在基础德语教学中的现实困境</div>
+  </div>
+
+  <!-- Slide 3: 问题诊断 - 核心痛点 -->
+  <div class="slide content" data-index="3">
+    <div class="content-title">核心痛点：AI与基础德语的"两张皮"</div>
+    <div class="grid-3">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:3em;margin-bottom:12px;">🌍</div>
+        <h3>小语种困境</h3>
+        <p>德语属小语种，AI模型训练语料远少于英语，对零起点学习者的适配度低。通用大模型在基础语法纠错、发音指导方面精确度不足。</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:3em;margin-bottom:12px;">🧑‍🎓</div>
+        <h3>学生使用率低</h3>
+        <p>零起点学生语言水平有限，无法与AI进行有意义的德语交互。AI工具停在"教师的生产力工具"，未成为"学生的学习伙伴"。</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:3em;margin-bottom:12px;">🔧</div>
+        <h3>灵活性不足</h3>
+        <p>AI难以灵活应对零起点课堂的高频互动需求——即时纠音、情境对话、基础语法判断——这些都需要大量定制化的教学智能体支持。</p>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:24px;max-width:800px;">
+      <p><strong>核心矛盾：</strong>AI目前主要用于教师前期（备课、出题、知识图谱），学生在学习过程中与AI的触点极少——这正是智慧课程需要突破的瓶颈。</p>
+    </div>
+  </div>
+
+  <!-- Slide 4: 问题诊断 - 具体问题拆解 -->
+  <div class="slide content" data-index="4">
+    <div class="content-title">具体问题拆解</div>
+    <ul class="checklist">
+      <li><strong>学情分析偏认知维度：</strong>传统学情分析聚焦考试成绩和作业完成率，忽视学生"情感状态""学习动机""创新潜能"等维度，无法为德语零起点教学提供精准画像。</li>
+      <li><strong>创新能力培养缺位：</strong>过于注重词汇记忆和语法规则训练，学生被动接受知识，缺乏用德语"提出问题、表达观点"的能力培养。</li>
+      <li><strong>AI时代能力错配：</strong>侧重"解决问题"（做题、翻译），忽视"提出问题"（用德语发起对话、表达疑惑）——而这正是AI时代外语学习的核心能力。</li>
+      <li><strong>教师端与学生端失衡：</strong>AI赋能了教师（知识图谱、互动课件、AI视频、AI出题），但学生端缺乏AI工具支持，形成"教"强"学"弱的格局。</li>
+    </ul>
+  </div>
+
+  <!-- Slide 5: Section 2 Header -->
+  <div class="slide section-header" data-index="5">
+    <div class="section-num">02</div>
+    <div class="section-title">学情分析</div>
+    <div class="section-divider"></div>
+    <div style="color:#94a3b8;margin-top:12px;font-size:1.1em;">数据驱动 · 聚类分组 · 个性化干预 · 闭环优化</div>
+  </div>
+
+  <!-- Slide 6: 学情分析 - 数据维度 -->
+  <div class="slide content" data-index="6">
+    <div class="content-title">学习通平台数据维度</div>
+    <div class="grid-2">
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>📊 行为数据</h3>
+          <p>视频观看时长、回看频次、课件停留时间、登录频率与时段分布</p>
+        </div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>📝 学业数据</h3>
+          <p>作业提交率与正确率、测验分数分布、知识点掌握度雷达图</p>
+        </div>
+        <div class="card">
+          <h3>💬 互动数据</h3>
+          <p>讨论区发言频次与质量、课堂互动参与度、同伴互评参与率</p>
+        </div>
+      </div>
+      <div>
+        <div class="highlight-box">
+          <p><strong>大模型提示词示例：</strong></p>
+          <p style="font-size:.9em;font-family:monospace;color:#94a3b8;">"请分析以下德语初学者学习行为数据：{视频完成率, 作业得分, 讨论参与次数, 登录频率}，进行K-Means聚类分析，将学生分为3-4组，并为每组生成学习画像标签和学习建议。"</p>
+        </div>
+        <div style="margin-top:16px;" class="card">
+          <h3>分析规则</h3>
+          <p>采用无监督聚类（K-Means），维度标准化后欧氏距离分组，不预设标签，由数据自然涌现学生画像。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: 学情分析 - 闭环 -->
+  <div class="slide content" data-index="7">
+    <div class="content-title">学情分析闭环：数据→策略→验证</div>
+    <div class="flow-row">
+      <div class="flow-step"><div class="name">📊 学情数据采集</div><div class="desc">学习通全维度数据</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="name">🧩 聚类分组</div><div class="desc">K-Means 3-4组画像</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="name">🎯 个性化策略</div><div class="desc">分层作业/智能推送</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="name">📈 效果评估</div><div class="desc">前后测对比分析</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="name">🔄 持续优化</div><div class="desc">策略迭代升级</div></div>
+    </div>
+    <div class="grid-2" style="margin-top:24px;">
+      <div class="card">
+        <h3>预期发现</h3>
+        <p>零起点学习者可聚类为"勤奋跟随型""主动探索型""基础薄弱型""间断参与型"，不同类型对应不同的AI辅助策略。</p>
+      </div>
+      <div class="card">
+        <h3>验证方法</h3>
+        <p>对照组实验设计：A组保持传统模式，B组接受个性化AI干预；对比期末成绩、学习投入度、课程满意度三维指标。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 8: Section 3 Header -->
+  <div class="slide section-header" data-index="8">
+    <div class="section-num">03</div>
+    <div class="section-title">AI+内容设计</div>
+    <div class="section-divider"></div>
+    <div style="color:#94a3b8;margin-top:12px;font-size:1.1em;">人机协同 · 敏捷课程体系 · 传统到智慧</div>
+  </div>
+
+  <!-- Slide 9: AI+内容设计 -->
+  <div class="slide content" data-index="9">
+    <div class="content-title">AI+课程升级路径</div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">📋 已完成的AI+升级</div>
+        <div style="margin-bottom:8px;"><span class="tag">知识图谱</span><span class="tag">互动式课件</span><span class="tag">AI视频</span><span class="tag">AI出题</span></div>
+        <p style="font-size:.9em;color:#94a3b8;">以上工具已应用于教师端，覆盖备课、授课、测评环节。</p>
+        <div class="col-label" style="margin-top:20px;">🚀 下一步升级方向</div>
+        <ul class="checklist" style="font-size:.9em;">
+          <li>AI自适应学习路径：根据学情分组动态调整内容推送</li>
+          <li>情境对话生成：基于章节主题的AI实时对话练习</li>
+          <li>智能语音评测：发音自动打分与纠音建议</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">📖 AI升级后课程大纲（人机协同生成）</div>
+        <div class="card" style="font-size:.85em;">
+          <p><strong>第一单元：</strong> Wiederholung + KI-gestützte Diagnostik<br><span style="color:#94a3b8;">AI诊断性测试 → 个性化复习路径</span></p>
+          <p><strong>第二单元：</strong> Wohnen + KI-Wortschatztrainer<br><span style="color:#94a3b8;">AI词汇训练 + 情境对话生成</span></p>
+          <p><strong>第三单元：</strong> Essen & Trinken + KI-Sprachpartner<br><span style="color:#94a3b8;">AI语音评测 + 数字人点餐对话</span></p>
+          <p><strong>第四单元：</strong> Freizeit + Projektbasiertes Lernen<br><span style="color:#94a3b8;">AI辅助项目式学习 + 可视化成果</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 10: AI+章节案例 -->
+  <div class="slide content" data-index="10">
+    <div class="content-title">章节升级案例：Essen & Trinken（饮食）</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>传统设计</h3>
+        <p style="color:#94a3b8;">• 教师展示食物词汇PPT<br>• 学生跟读、记忆<br>• 课本对话填空练习<br>• 课后抄写单词</p>
+        <div style="text-align:center;margin-top:12px;font-size:2em;">⬇️</div>
+      </div>
+      <div class="card" style="border-color:rgba(251,191,36,.4);">
+        <h3>AI+升级设计</h3>
+        <p>• <strong>AI词汇训练器：</strong>基于遗忘曲线的个性化单词推送<br>• <strong>数字人点餐场景：</strong>虚拟德国餐厅情境对话<br>• <strong>AI语音评测：</strong>实时发音反馈与纠音<br>• <strong>智能出题：</strong>根据学生薄弱点自动生成练习<br>• <strong>知识图谱：</strong>食物词汇→餐厅用语→文化知识的关联网络</p>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:16px;max-width:800px;">
+      <p><strong>敏捷响应机制：</strong>每次课堂结束后，AI根据学习通数据自动分析学生薄弱环节，在24小时内推送个性化补充练习——让课程"活"起来而非"一版定终身"。</p>
+    </div>
+  </div>
+
+  <!-- Slide 11: Section 4 Header -->
+  <div class="slide section-header" data-index="11">
+    <div class="section-num">04</div>
+    <div class="section-title">数字人设计</div>
+    <div class="section-divider"></div>
+    <div style="color:#94a3b8;margin-top:12px;font-size:1.1em;">德语发音示范 · 情境对话 · 微视频教学</div>
+  </div>
+
+  <!-- Slide 12: 数字人设计 -->
+  <div class="slide content" data-index="12">
+    <div class="content-title">数字人：零起点学生的发音导师</div>
+    <div class="grid-2">
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>👤 形象设计</h3>
+          <p>年轻德语母语者形象，亲和力强，口型与德语发音精准同步。设计提示词示例："一位25岁德国女性教师，穿着商务休闲装，背景为现代教室，面部表情自然亲切，可以清晰展示德语发音口型。"</p>
+        </div>
+        <div class="card">
+          <h3>📹 微视频案例</h3>
+          <p>数字人讲解德语元音变音（Umlaut）ä/ö/ü：正面与侧面双角度展示口型变化，慢速→常速→连读三档语速，配合可视化舌位图。时长约2分钟，适合课堂嵌入或学生课后反复观看。</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>🎯 核心功能</h3>
+          <p>• 发音示范：标准德语发音口型可视化<br>• 慢速重播：学生可控制速度反复跟读<br>• 错误对比：展示常见发音错误及纠正<br>• 情境对话：模拟餐厅、车站等真实场景</p>
+        </div>
+        <div class="highlight-box">
+          <p><strong>教学问题对应：</strong>解决零起点学生"听不到标准发音→不敢开口→语音固化"的恶性循环。数字人提供24/7可用的标准发音参照，弥补课堂时间有限、教师无法逐人纠音的痛点。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 13: Section 5 Header -->
+  <div class="slide section-header" data-index="13">
+    <div class="section-num">05</div>
+    <div class="section-title">智能体设计</div>
+    <div class="section-divider"></div>
+    <div style="color:#94a3b8;margin-top:12px;font-size:1.1em;">助教 · 学伴 · 功能智能体 — 三位一体</div>
+  </div>
+
+  <!-- Slide 14: 智能体设计 -->
+  <div class="slide content" data-index="14">
+    <div class="content-title">三大智能体矩阵</div>
+    <div class="grid-3">
+      <div class="card">
+        <div style="font-size:2.5em;text-align:center;margin-bottom:8px;">🤖</div>
+        <h3>助教智能体</h3>
+        <p style="color:#94a3b8;"><strong>核心：</strong>知识库驱动的答疑辅导</p>
+        <p style="color:#94a3b8;">知识库涵盖：教材词汇表、语法规则库、常见错误库、单元知识点关联图。学生用中文提问，智能体以中德双语回答，降低零起点学生的使用门槛。</p>
+        <p style="color:#94a3b8;font-size:.85em;margin-top:8px;">知识库设计原则：结构化知识条目 + 典型问答对 + 错误案例库</p>
+      </div>
+      <div class="card">
+        <div style="font-size:2.5em;text-align:center;margin-bottom:8px;">🧑‍🏫</div>
+        <h3>学伴智能体</h3>
+        <p style="color:#94a3b8;"><strong>核心：</strong>学习评价标准驱动的反馈</p>
+        <p style="color:#94a3b8;">基于CEFR A1/A2评价标准，对学生作业进行多维度评价：词汇准确性、语法正确性、表达连贯性、文化适切性。</p>
+        <p style="color:#94a3b8;font-size:.85em;margin-top:8px;">评价标准设计：CEFR能力描述语 → 可操作评分rubric → AI自动评判</p>
+      </div>
+      <div class="card">
+        <div style="font-size:2.5em;text-align:center;margin-bottom:8px;">⚙️</div>
+        <h3>功能智能体</h3>
+        <p style="color:#94a3b8;"><strong>核心：</strong>工作流驱动的专项任务</p>
+        <p style="color:#94a3b8;">• 出题工作流：指定语法点→难度分级→题型多样化→答案自动生成<br>• 纠音工作流：学生录音→ASR转写→发音评分→纠音建议<br>• 项目辅导流：选题建议→框架生成→阶段性反馈</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 15: Section 6 Header -->
+  <div class="slide section-header" data-index="15">
+    <div class="section-num">06</div>
+    <div class="section-title">项目化作业</div>
+    <div class="section-divider"></div>
+    <div style="color:#94a3b8;margin-top:12px;font-size:1.1em;">从"解决问题"到"提出问题"的范式转变</div>
+  </div>
+
+  <!-- Slide 16: 项目化作业 -->
+  <div class="slide content" data-index="16">
+    <div class="content-title">三个项目化作业设计</div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">P1</div>
+        <h3>🇩🇪 我的德语生存指南</h3>
+        <p style="color:#94a3b8;"><strong>学生提出问题：</strong>"如果我去德国交换，第一天会面临哪些语言挑战？"</p>
+        <p style="color:#94a3b8;font-size:.85em;">数据来源：学习通课程词汇库 + AI生成的情境对话语料<br><strong>成果：</strong>交互式数据仪表盘 —— 展示常见场景词汇覆盖率、个人掌握度雷达图、AI生成的个性化学习建议</p>
+      </div>
+      <div class="card">
+        <div class="card-num">P2</div>
+        <h3>🎬 德国日常微纪录片</h3>
+        <p style="color:#94a3b8;"><strong>学生提出问题：</strong>"德国大学生的一天和我的有什么不同？"</p>
+        <p style="color:#94a3b8;font-size:.85em;">数据来源：YouTube德语Vlog + AI摘要转写<br><strong>成果：</strong>3分钟德语配音微纪录片 + 中德双语字幕，AI辅助脚本生成与发音校对</p>
+      </div>
+      <div class="card">
+        <div class="card-num">P3</div>
+        <h3>🍽️ 中德饮食文化对比报告</h3>
+        <p style="color:#94a3b8;"><strong>学生提出问题：</strong>"中德饮食文化差异如何影响日常用语表达？"</p>
+        <p style="color:#94a3b8;font-size:.85em;">数据来源：德语食谱网站 + 学习通课程知识图谱<br><strong>成果：</strong>行业咨询报告格式 —— 文化对比 + 语言现象分析 + AI可视化图表</p>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:20px;max-width:800px;">
+      <p><strong>范式转变：</strong>三个项目均以学生"提出问题"为起点，AI作为工具辅助探索——而非给定标准答案。学生从"被动解题者"转为"主动探究者"。</p>
+    </div>
+  </div>
+
+  <!-- Slide 17: 总结 -->
+  <div class="slide cover" data-index="17">
+    <div class="end-title">总结与展望</div>
+    <div class="section-divider" style="margin:24px auto;"></div>
+    <div style="max-width:700px;text-align:center;line-height:2;color:#cbd5e1;">
+      <p>✅ 知识图谱 + 互动课件 + AI视频 + AI出题 — <strong style="color:#fbbf24;">教师端已就绪</strong></p>
+      <p>🔄 学情分析闭环 + 智能体矩阵 + 数字人 — <strong style="color:#fbbf24;">学生端正在建设</strong></p>
+      <p>🚀 项目化作业范式转变 — <strong style="color:#fbbf24;">从解题到提问</strong></p>
+    </div>
+    <div class="highlight-box" style="margin-top:32px;max-width:600px;">
+      <p style="text-align:center;"><strong>下一阶段核心任务：</strong>从"AI赋能教师"走向"AI赋能学生"，让零起点德语学习者真正成为AI+课程的受益者。</p>
+    </div>
+    <div class="cover-accent"></div>
+    <div style="color:#64748b;margin-top:20px;font-size:.85em;">广东外语大学南国商学院 · 基础德语2 AI+智慧课程</div>
+  </div>
+
+</div>
+
+<div class="nav-dots" id="navDots"></div>
+<div class="nav-hint">← → 键翻页 ｜ 共 <span id="totalSlides">0</span> 页</div>
+<div class="slide-counter" id="slideCounter"></div>
+
+<script>
+(function(){
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  document.getElementById('totalSlides').textContent = total;
+  const navDots = document.getElementById('navDots');
+  const counter = document.getElementById('slideCounter');
+
+  for(let i=0;i<total;i++){
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i===0?' active':'');
+    dot.onclick = ()=>goTo(i);
+    navDots.appendChild(dot);
+  }
+
+  function update(){
+    slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+    navDots.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+    counter.textContent = (current+1) + ' / ' + total;
+  }
+
+  window.goTo = function(idx){
+    current = Math.max(0,Math.min(total-1,idx));
+    update();
+  };
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){
+      e.preventDefault(); goTo(current+1);
+    } else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){
+      e.preventDefault(); goTo(current-1);
+    } else if(e.key==='Home'){ e.preventDefault(); goTo(0); }
+    else if(e.key==='End'){ e.preventDefault(); goTo(total-1); }
+  });
+
+  let touchStartY=0;
+  document.addEventListener('touchstart',e=>{ touchStartY=e.touches[0].clientY; });
+  document.addEventListener('touchend',e=>{
+    const dy = touchStartY - e.changedTouches[0].clientY;
+    if(Math.abs(dy)>50) goTo(current+(dy>0?1:-1));
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>
