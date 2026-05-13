@@ -112,6 +112,8 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 .nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(139,149,165,.3);cursor:pointer;transition:all .25s}
 .nav-dot:hover{background:rgba(232,196,90,.5);transform:scale(1.25)}
 .nav-dot.active{background:var(--gold);transform:scale(1.35);box-shadow:0 0 8px rgba(232,196,90,.55);border:1px solid rgba(232,196,90,.3)}
+.nav-page{font-size:.5em;color:var(--text3);margin-left:8px;font-family:'Inter',sans-serif;font-weight:600;opacity:.5}
+.nav-hint,.slide-counter{display:none!important}
 .click-nav{position:fixed;top:50px;bottom:32px;z-index:50;cursor:pointer;width:35%}
 .click-nav.prev{left:0}.click-nav.next{right:0}
 @media(min-width:1400px){.section-title{font-size:2.3em}.content-title{font-size:1.5em}}
@@ -492,20 +494,20 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 <div class="click-nav prev" onmousedown="goTo('prev');event.stopPropagation()"></div>
 <div class="click-nav next" onmousedown="goTo('next');event.stopPropagation()"></div>
 <div class="nav-dots" id="navDots"></div>
-<div class="nav-hint">← → 翻页 ｜ <span id="totalSlides">0</span> 页</div>
-<div class="slide-counter" id="slideCounter"></div>
+
 
 <script>
 (function(){
   const s=document.querySelectorAll('.slide'),t=s.length;let c=0;
   document.getElementById('totalSlides')&&(document.getElementById('totalSlides').textContent=t);
-  const nd=document.getElementById('navDots'),co=document.getElementById('slideCounter');
+  const nd=document.getElementById('navDots');
   for(let i=0;i<t;i++){const d=document.createElement('div');d.className='nav-dot'+(i===0?' active':'');d.onclick=(e)=>{e.stopPropagation();goTo(i)};nd.appendChild(d)}
+  const np=document.createElement('span');np.className='nav-page';np.textContent='1/'+t;nd.appendChild(np);
   function u(){
     document.querySelectorAll('.top-nav .nav-item').forEach(i=>i.classList.toggle('active',parseInt(i.dataset.target)===c));
     nd.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===c));
-    if(co)co.textContent=(c+1)+' / '+t;
     const pl=document.getElementById('progressLabel');if(pl)pl.textContent=(c+1)+' / '+t;
+    const np=nd.querySelector('.nav-page');if(np)np.textContent=(c+1)+'/'+t;
   }
   window.goTo=function(i){if(i==='prev'){c=Math.max(0,c-1)}else if(i==='next'){c=Math.min(t-1,c+1)}else{c=Math.max(0,Math.min(t-1,i))}s.forEach((x,j)=>x.classList.toggle('active',j===c));u()};
   document.querySelectorAll('.top-nav .nav-item').forEach(i=>i.addEventListener('click',()=>goTo(parseInt(i.dataset.target))));
