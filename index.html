@@ -8,114 +8,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700;800&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef2f8;overflow:hidden;height:100vh;width:100vw;margin:0;display:flex;align-items:center;justify-content:center}
-:root{--gold:#e8c45a;--gold-light:#f7e29a;--gold-dim:rgba(232,196,90,.14);--red:#c04438;--dark:#121e33;--panel:rgba(25,45,78,.5);--panel-border:rgba(232,196,90,.15);--text:#eef2f8;--text2:#b0bed0;--text3:#7a8ba0;--nav-height:54px}
-.stage{position:relative;width:100vw;max-width:177.78vh;height:100vh;max-height:56.25vw;background:linear-gradient(165deg,#121e33 0%,#16243d 40%,#1a2a45 100%);overflow:hidden;display:flex;flex-direction:column;font-size:clamp(18px,min(2.5vw,4.5vh),38px)}
+:root{--gold:#e8c45a;--gold-light:#f7e29a;--gold-dim:rgba(232,196,90,.14);--red:#c04438;--dark:#121e33;--panel:rgba(25,45,78,.5);--panel-border:rgba(232,196,90,.15);--text:#eef2f8;--text2:#b0bed0;--text3:#7a8ba0;--nav-height:50px}
+.stage{position:relative;width:100vw;max-width:177.78vh;height:100vh;max-height:56.25vw;background:linear-gradient(165deg,#121e33 0%,#16243d 40%,#1a2a45 100%);overflow:hidden;display:flex;flex-direction:column;font-size:clamp(15px,min(2vw,3.6vh),24px)}
 .slide-container{position:relative;flex:1;width:100%;min-height:0}
-.slide{position:absolute;inset:0;top:var(--nav-height);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px min(20px,2.2vw) 16px;opacity:0;transform:translateY(25px);transition:all .4s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.slide{position:absolute;inset:0;top:var(--nav-height);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px min(28px,3vw) 22px;opacity:0;transform:translateY(25px);transition:all .4s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .slide.active{opacity:1;transform:translateY(0);pointer-events:auto}
-.slide.cover{top:0;padding:24px min(36px,4vw)}
+.slide.cover{top:0;padding:28px min(42px,4.5vw)}
 .slide.section-header{background:radial-gradient(ellipse at 50% 30%,rgba(232,196,90,.08) 0%,transparent 70%),linear-gradient(180deg,#1a2a48,#121e33)}
-.top-nav{position:relative;z-index:200;height:var(--nav-height);display:flex;align-items:center;flex-shrink:0;background:rgba(15,25,45,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--panel-border);padding:0 8px}
-.top-nav .logo{font-family:'Playfair Display',serif;font-size:.7em;color:var(--gold);margin-right:6px;white-space:nowrap}
-.top-nav .nav-items{display:flex;flex:1;overflow-x:auto;gap:0}
-.top-nav .nav-item{padding:0 6px;height:var(--nav-height);line-height:var(--nav-height);font-size:.55em;color:var(--text3);cursor:pointer;white-space:nowrap;transition:all .25s;position:relative}
+.top-nav{position:relative;z-index:200;height:var(--nav-height);display:flex;align-items:center;flex-shrink:0;background:rgba(15,25,45,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--panel-border);padding:0 10px}
+.top-nav .logo{font-family:'Playfair Display',serif;font-size:.72em;color:var(--gold);margin-right:8px;white-space:nowrap}
+.top-nav .nav-items{display:flex;flex:1;overflow-x:auto;gap:1px}
+.top-nav .nav-item{padding:0 7px;height:var(--nav-height);line-height:var(--nav-height);font-size:.58em;color:var(--text3);cursor:pointer;white-space:nowrap;transition:all .25s;position:relative}
 .top-nav .nav-item:hover{color:var(--text)}
 .top-nav .nav-item.active{color:var(--gold);font-weight:600}
-.top-nav .nav-item.active::after{content:'';position:absolute;bottom:0;left:4px;right:4px;height:2px;background:var(--gold);border-radius:1px}
-.top-nav .progress-label{font-size:.55em;color:var(--text3);margin-left:4px;white-space:nowrap}
-.top-nav .fullscreen-btn{width:30px;height:30px;border-radius:4px;border:1px solid var(--panel-border);background:transparent;color:var(--text3);cursor:pointer;font-size:.65em;display:flex;align-items:center;justify-content:center;margin-left:3px;flex-shrink:0}
+.top-nav .nav-item.active::after{content:'';position:absolute;bottom:0;left:5px;right:5px;height:2px;background:var(--gold);border-radius:1px}
+.top-nav .progress-label{font-size:.58em;color:var(--text3);margin-left:6px;white-space:nowrap}
+.top-nav .fullscreen-btn{width:28px;height:28px;border-radius:4px;border:1px solid var(--panel-border);background:transparent;color:var(--text3);cursor:pointer;font-size:.7em;display:flex;align-items:center;justify-content:center;margin-left:4px;flex-shrink:0}
 .cover{background:radial-gradient(ellipse at 20% 80%,rgba(192,68,56,.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(232,196,90,.1) 0%,transparent 50%),linear-gradient(150deg,#0f1a30 0%,#182841 30%,#1e3250 60%,#121e33 100%)}
-.cover-title{font-size:clamp(2em,3.6em,3.6em);font-weight:900;text-align:center;line-height:1.15;letter-spacing:-.01em;word-break:break-word;overflow-wrap:break-word}
-.cover-title .de{color:var(--gold);font-family:'Playfair Display',serif;font-style:italic;font-size:.82em;display:block}
-.cover-subtitle{font-size:.95em;color:var(--text2);margin-top:8px;font-weight:300}
-.cover-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;justify-content:center}
-.cover-tag{padding:4px 16px;border-radius:20px;font-size:.62em;font-weight:500;border:1px solid var(--panel-border);background:rgba(25,45,78,.6);color:var(--text2)}
-.deco-line{width:60px;height:2px;margin:14px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
-.section-num{font-size:4em;font-weight:900;color:rgba(232,196,90,.04);position:absolute;top:2px;right:14px;line-height:1;font-family:'Playfair Display',serif;pointer-events:none}
+.cover-title{font-size:clamp(2em,3.6em,3.6em);font-weight:900;text-align:center;line-height:1.2;letter-spacing:-.01em;word-break:break-word;overflow-wrap:break-word}
+.cover-title .de{color:var(--gold);font-family:'Playfair Display',serif;font-style:italic;font-size:.85em;display:block}
+.cover-subtitle{font-size:1em;color:var(--text2);margin-top:10px;font-weight:300}
+.cover-tags{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;justify-content:center}
+.cover-tag{padding:5px 18px;border-radius:22px;font-size:.65em;font-weight:500;border:1px solid var(--panel-border);background:rgba(25,45,78,.6);color:var(--text2)}
+.deco-line{width:60px;height:2px;margin:16px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.section-num{font-size:4.5em;font-weight:900;color:rgba(232,196,90,.04);position:absolute;top:3px;right:16px;line-height:1;font-family:'Playfair Display',serif;pointer-events:none}
 .section-title{font-size:2em;font-weight:800;text-align:center;position:relative;z-index:1;letter-spacing:-.01em}
-.section-title .de{color:var(--gold);font-family:'Playfair Display',serif;font-style:italic;font-size:.48em;display:block;margin-bottom:2px;font-weight:400}
-.section-desc{color:var(--text2);font-size:.78em;margin-top:4px;font-weight:300;text-align:center}
-.section-goal{background:var(--panel);border:1px solid var(--panel-border);border-radius:5px;padding:5px 14px;margin-top:7px;max-width:480px;font-size:.65em;color:var(--text2);text-align:center}
+.section-title .de{color:var(--gold);font-family:'Playfair Display',serif;font-style:italic;font-size:.5em;display:block;margin-bottom:3px;font-weight:400}
+.section-desc{color:var(--text2);font-size:.8em;margin-top:5px;font-weight:300;text-align:center}
+.section-goal{background:var(--panel);border:1px solid var(--panel-border);border-radius:6px;padding:5px 14px;margin-top:8px;max-width:520px;font-size:.7em;color:var(--text2);text-align:center}
 .section-goal strong{color:var(--gold-light)}
-.section-divider{width:38px;height:2px;margin:8px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
-.link-banner{display:flex;align-items:center;gap:4px;background:rgba(232,196,90,.07);border:1px solid rgba(232,196,90,.12);border-radius:4px;padding:3px 10px;margin-bottom:6px;font-size:.58em;color:var(--text2)}
+.section-divider{width:42px;height:2px;margin:10px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.link-banner{display:flex;align-items:center;gap:5px;background:rgba(232,196,90,.07);border:1px solid rgba(232,196,90,.12);border-radius:5px;padding:4px 12px;margin-bottom:8px;font-size:.6em;color:var(--text2)}
 .link-banner .label{color:var(--text3);font-weight:600;white-space:nowrap}.link-banner .target{color:var(--gold-light)}
-.content-title{font-size:1.3em;font-weight:800;margin-bottom:7px;text-align:center;color:var(--gold);letter-spacing:-.01em}
-.content-title .de{font-family:'Playfair Display',serif;font-style:italic;font-size:.38em;display:block;color:var(--text2);font-weight:400;margin-bottom:2px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:1020px;width:100%}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;max-width:1020px;width:100%}
-.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;max-width:1020px;width:100%}
-.card{background:var(--panel);border:1px solid var(--panel-border);border-radius:7px;padding:8px 10px;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
+.content-title{font-size:1.35em;font-weight:800;margin-bottom:10px;text-align:center;color:var(--gold);letter-spacing:-.01em}
+.content-title .de{font-family:'Playfair Display',serif;font-style:italic;font-size:.4em;display:block;color:var(--text2);font-weight:400;margin-bottom:2px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1020px;width:100%}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;max-width:1020px;width:100%}
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;max-width:1020px;width:100%}
+.card{background:var(--panel);border:1px solid var(--panel-border);border-radius:8px;padding:10px 14px;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold));opacity:0;transition:opacity .3s}
 .card:hover::before{opacity:1}.card:hover{border-color:rgba(232,196,90,.25);transform:translateY(-2px)}
-.card h3{color:var(--gold);font-size:.72em;margin-bottom:3px;font-weight:700}
-.card p{color:var(--text2);font-size:.62em;line-height:1.45}
-.highlight-box{background:rgba(232,196,90,.06);border-left:2px solid var(--gold);padding:5px 14px;border-radius:0 4px 4px 0;margin:6px 0;max-width:760px}
-.highlight-box p{color:var(--text);font-size:.7em;line-height:1.5}
+.card h3{color:var(--gold);font-size:.8em;margin-bottom:4px;font-weight:700}
+.card p{color:var(--text2);font-size:.75em;line-height:1.5}
+.highlight-box{background:rgba(232,196,90,.06);border-left:2px solid var(--gold);padding:6px 14px;border-radius:0 5px 5px 0;margin:8px 0;max-width:760px}
+.highlight-box p{color:var(--text);font-size:.75em;line-height:1.5}
 
 /* Screenshot image styling */
-.screenshot{border-radius:4px;border:1px solid var(--panel-border);width:100%;height:auto;display:block;object-fit:contain}
-.screenshot-wrap{background:var(--panel);border-radius:4px;padding:2px;border:1px solid var(--panel-border)}
-.screenshot-caption{font-size:.52em;color:var(--text3);text-align:center;margin-top:3px}
+.screenshot{border-radius:5px;border:1px solid var(--panel-border);width:100%;height:auto;display:block;object-fit:contain}
+.screenshot-wrap{background:var(--panel);border-radius:5px;padding:3px;border:1px solid var(--panel-border)}
+.screenshot-caption{font-size:.55em;color:var(--text3);text-align:center;margin-top:3px}
 
-.stat-grid{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:4px 0}
-.stat-card{text-align:center;padding:5px 10px;border-radius:7px;background:var(--panel);border:1px solid var(--panel-border);min-width:68px}
-.stat-card .num{font-size:1.5em;font-weight:900;font-family:'Inter',sans-serif;color:var(--gold);line-height:1.15}
+.stat-grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.stat-card{text-align:center;padding:6px 14px;border-radius:8px;background:var(--panel);border:1px solid var(--panel-border);min-width:76px}
+.stat-card .num{font-size:1.6em;font-weight:900;font-family:'Inter',sans-serif;color:var(--gold);line-height:1.2}
 .stat-card .num.green{color:#22b8b0}.stat-card .num.red{color:var(--red)}.stat-card .num.orange{color:#f0b42b}
-.stat-card .label{font-size:.52em;color:var(--text3);margin-top:1px}
-.bar-row{display:flex;align-items:center;gap:5px;margin:3px 0}
-.bar-row .bar-label{font-size:.52em;color:var(--text2);min-width:42px;text-align:right}
-.bar-row .bar-track{flex:1;height:10px;background:rgba(255,255,255,.04);border-radius:5px;overflow:hidden}
-.bar-row .bar-fill{height:100%;border-radius:5px}
-.bar-row .bar-num{font-size:.5em;color:var(--text3);min-width:28px}
-.profile-card{padding:6px;text-align:center;border-radius:7px}
-.profile-card .emoji{font-size:1.1em;margin-bottom:2px}
-.profile-card .pname{color:var(--gold);font-size:.6em;font-weight:700}
-.profile-card .ptrait{color:var(--text2);font-size:.5em;line-height:1.2}
+.stat-card .label{font-size:.58em;color:var(--text3);margin-top:2px}
+.bar-row{display:flex;align-items:center;gap:6px;margin:4px 0}
+.bar-row .bar-label{font-size:.58em;color:var(--text2);min-width:48px;text-align:right}
+.bar-row .bar-track{flex:1;height:12px;background:rgba(255,255,255,.04);border-radius:6px;overflow:hidden}
+.bar-row .bar-fill{height:100%;border-radius:6px}
+.bar-row .bar-num{font-size:.55em;color:var(--text3);min-width:32px}
+.profile-card{padding:8px;text-align:center;border-radius:8px}
+.profile-card .emoji{font-size:1.2em;margin-bottom:3px}
+.profile-card .pname{color:var(--gold);font-size:.65em;font-weight:700}
+.profile-card .ptrait{color:var(--text2);font-size:.55em;line-height:1.2}
 .profile-card.type1{border:1px solid rgba(232,196,90,.3)}.profile-card.type2{border:1px solid rgba(34,184,176,.3)}
 .profile-card.type3{border:1px solid rgba(192,68,56,.25)}.profile-card.type4{border:1px solid rgba(240,180,43,.3)}
-.tag{display:inline-block;background:var(--gold-dim);color:var(--gold);padding:1px 6px;border-radius:12px;font-size:.52em;margin:1px;font-weight:500}
-.llm-output{background:rgba(10,20,38,.7);border:1px solid rgba(232,196,90,.1);border-radius:5px;padding:6px 10px;font-size:.55em;color:var(--text2);line-height:1.45;font-family:'SF Mono','Consolas',monospace;white-space:pre-wrap}
-.llm-output .title{color:var(--gold);font-weight:700;margin-bottom:2px;font-family:'Noto Sans SC',sans-serif}
-.agent-tabs{display:flex;gap:2px;margin-bottom:4px}
-.agent-tab{padding:4px 12px;border-radius:3px 3px 0 0;cursor:pointer;font-size:.58em;font-weight:600;background:var(--panel);border:1px solid var(--panel-border);border-bottom:none;color:var(--text3);transition:all .25s}
+.tag{display:inline-block;background:var(--gold-dim);color:var(--gold);padding:2px 8px;border-radius:14px;font-size:.58em;margin:2px;font-weight:500}
+.llm-output{background:rgba(10,20,38,.7);border:1px solid rgba(232,196,90,.1);border-radius:6px;padding:7px 11px;font-size:.62em;color:var(--text2);line-height:1.5;font-family:'SF Mono','Consolas',monospace;white-space:pre-wrap}
+.llm-output .title{color:var(--gold);font-weight:700;margin-bottom:3px;font-family:'Noto Sans SC',sans-serif}
+.agent-tabs{display:flex;gap:3px;margin-bottom:6px}
+.agent-tab{padding:5px 14px;border-radius:4px 4px 0 0;cursor:pointer;font-size:.65em;font-weight:600;background:var(--panel);border:1px solid var(--panel-border);border-bottom:none;color:var(--text3);transition:all .25s}
 .agent-tab.active{background:rgba(25,45,78,.9);color:var(--gold);border-color:rgba(232,196,90,.2)}
-.agent-content{background:var(--panel);border:1px solid var(--panel-border);border-radius:0 4px 4px 4px;padding:8px 12px;min-height:88px;max-width:920px;width:100%}
+.agent-content{background:var(--panel);border:1px solid var(--panel-border);border-radius:0 5px 5px 5px;padding:10px 14px;min-height:95px;max-width:920px;width:100%}
 .agent-content .qa{display:none}.agent-content .qa.active{display:block}
-.agent-content .q{color:var(--text2);font-size:.6em;margin-bottom:3px;padding-left:6px;border-left:2px solid var(--text3)}
-.agent-content .a{color:var(--text);font-size:.6em;line-height:1.45;padding-left:6px;border-left:2px solid var(--gold);margin-bottom:3px}
-.agent-content .label{font-size:.45em;color:var(--text3);letter-spacing:.03em}
-.flow-row{display:flex;align-items:center;justify-content:center;gap:3px;flex-wrap:wrap;margin:4px 0}
-.flow-step{background:var(--panel);border:1px solid var(--panel-border);border-radius:4px;padding:3px 6px;text-align:center;min-width:44px}
-.flow-step .icon{font-size:.75em;margin-bottom:1px}
-.flow-step .name{font-weight:700;color:var(--gold);font-size:.55em}
-.flow-arrow{color:var(--gold);font-size:.7em;opacity:.3}
-.prompt-box{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:4px;padding:4px 7px;font-size:.5em;color:var(--text2);line-height:1.4;font-family:'SF Mono','Consolas',monospace;margin-top:2px}
-.compare-row{display:flex;gap:8px;max-width:900px;width:100%}
-.compare-row .side{flex:1;border-radius:5px;padding:8px 12px}
+.agent-content .q{color:var(--text2);font-size:.68em;margin-bottom:4px;padding-left:7px;border-left:2px solid var(--text3)}
+.agent-content .a{color:var(--text);font-size:.68em;line-height:1.5;padding-left:7px;border-left:2px solid var(--gold);margin-bottom:4px}
+.agent-content .label{font-size:.5em;color:var(--text3);letter-spacing:.03em}
+.flow-row{display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;margin:6px 0}
+.flow-step{background:var(--panel);border:1px solid var(--panel-border);border-radius:4px;padding:4px 7px;text-align:center;min-width:48px}
+.flow-step .icon{font-size:.8em;margin-bottom:1px}
+.flow-step .name{font-weight:700;color:var(--gold);font-size:.58em}
+.flow-arrow{color:var(--gold);font-size:.75em;opacity:.3}
+.prompt-box{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:4px;padding:5px 8px;font-size:.55em;color:var(--text2);line-height:1.45;font-family:'SF Mono','Consolas',monospace;margin-top:3px}
+.compare-row{display:flex;gap:12px;max-width:920px;width:100%}
+.compare-row .side{flex:1;border-radius:6px;padding:10px 14px}
 .compare-row .old-side{background:rgba(192,68,56,.07);border:1px solid rgba(192,68,56,.15)}
 .compare-row .new-side{background:rgba(232,196,90,.07);border:1px solid rgba(232,196,90,.2)}
-.compare-row h4{font-size:.72em;margin-bottom:4px}
+.compare-row h4{font-size:.78em;margin-bottom:5px}
 .compare-row ul{list-style:none;padding:0}
-.compare-row li{padding:2px 0;font-size:.55em;color:var(--text2);line-height:1.35}
-.compare-row .arrow{font-size:1.2em;display:flex;align-items:center;color:var(--gold);opacity:.3}
-.proj-card{text-align:center;padding:8px 6px}
-.proj-card .pnum{font-size:1.2em;font-weight:900;color:rgba(232,196,90,.08);font-family:'Playfair Display',serif}
-.proj-card h3{font-size:.65em}.proj-card .q{font-size:.55em;color:var(--text2);margin:2px 0}
-.proj-card .outcome{font-size:.55em;color:var(--gold-light);margin-top:2px}
-.proj-card .src{font-size:.45em;color:var(--text3)}
-.flow-proj{display:flex;align-items:center;justify-content:center;gap:2px;flex-wrap:wrap;margin:4px 0;font-size:.5em}
-.flow-proj .step{padding:2px 6px;border-radius:3px;background:var(--gold-dim);color:var(--gold);font-weight:500}
+.compare-row li{padding:3px 0;font-size:.62em;color:var(--text2);line-height:1.4}
+.compare-row .arrow{font-size:1.3em;display:flex;align-items:center;color:var(--gold);opacity:.3}
+.proj-card{text-align:center;padding:10px 8px}
+.proj-card .pnum{font-size:1.3em;font-weight:900;color:rgba(232,196,90,.08);font-family:'Playfair Display',serif}
+.proj-card h3{font-size:.7em}.proj-card .q{font-size:.6em;color:var(--text2);margin:3px 0}
+.proj-card .outcome{font-size:.6em;color:var(--gold-light);margin-top:2px}
+.flow-proj{display:flex;align-items:center;justify-content:center;gap:3px;flex-wrap:wrap;margin:6px 0;font-size:.55em}
+.flow-proj .step{padding:3px 7px;border-radius:3px;background:var(--gold-dim);color:var(--gold);font-weight:500}
 .flow-proj .arr{color:var(--text3);font-weight:700}
 
 /* Nav dots */
-.nav-dots{position:fixed;bottom:6px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:100;padding:5px 14px;border-radius:14px;background:rgba(10,20,38,.65)}
+.nav-dots{position:fixed;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:100;padding:5px 14px;border-radius:14px;background:rgba(10,20,38,.65)}
 .nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(139,149,165,.3);cursor:pointer;transition:all .25s}
 .nav-dot:hover{background:rgba(232,196,90,.5);transform:scale(1.25)}
 .nav-dot.active{background:var(--gold);transform:scale(1.35);box-shadow:0 0 8px rgba(232,196,90,.55);border:1px solid rgba(232,196,90,.3)}
-.click-nav{position:fixed;top:54px;bottom:28px;z-index:50;cursor:pointer;width:35%}
+.click-nav{position:fixed;top:50px;bottom:32px;z-index:50;cursor:pointer;width:35%}
 .click-nav.prev{left:0}.click-nav.next{right:0}
-@media(min-width:1400px){.section-title{font-size:2.3em}.content-title{font-size:1.45em}}
+@media(min-width:1400px){.section-title{font-size:2.3em}.content-title{font-size:1.5em}}
 </style>
 </head>
 <body>
@@ -150,19 +149,19 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 <!-- S1 OVERVIEW -->
 <div class="slide content" data-index="1">
   <div class="content-title"><span class="de">Gliederung · 6 Module</span>汇报结构</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;max-width:900px;width:100%">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;max-width:900px;width:100%">
     <div class="card" onclick="goTo(2)" style="cursor:pointer;text-align:center;padding:10px 6px">
-      <div style="font-size:1.3em;margin-bottom:2px">01</div><h3>Problemdiagnose</h3><p>基于学习通数据诊断缺口</p></div>
+      <div style="font-size:1.4em;margin-bottom:2px">01</div><h3>Problemdiagnose</h3><p>基于学习通数据诊断缺口</p></div>
     <div class="card" onclick="goTo(5)" style="cursor:pointer;text-align:center;padding:10px 6px">
-      <div style="font-size:1.3em;margin-bottom:2px">02</div><h3>Lernanalyse</h3><p>真实学情+4类画像</p></div>
+      <div style="font-size:1.4em;margin-bottom:2px">02</div><h3>Lernanalyse</h3><p>真实学情+4类画像</p></div>
     <div class="card" onclick="goTo(8)" style="cursor:pointer;text-align:center;padding:10px 6px">
-      <div style="font-size:1.3em;margin-bottom:2px">03</div><h3>KI+Inhalte</h3><p>4模块12课·课程图谱</p></div>
+      <div style="font-size:1.4em;margin-bottom:2px">03</div><h3>KI+Inhalte</h3><p>4模块12课·课程图谱</p></div>
     <div class="card" onclick="goTo(11)" style="cursor:pointer;text-align:center;padding:10px 6px">
-      <div style="font-size:1.3em;margin-bottom:2px">04</div><h3>Digitaler Avatar</h3><p>数字人·微视频</p></div>
+      <div style="font-size:1.4em;margin-bottom:2px">04</div><h3>Digitaler Avatar</h3><p>数字人·微视频</p></div>
     <div class="card" onclick="goTo(14)" style="cursor:pointer;text-align:center;padding:10px 6px">
-      <div style="font-size:1.3em;margin-bottom:2px">05</div><h3>KI-Agenten</h3><p>交互数据+设计</p></div>
+      <div style="font-size:1.4em;margin-bottom:2px">05</div><h3>KI-Agenten</h3><p>交互数据+设计</p></div>
     <div class="card" onclick="goTo(17)" style="cursor:pointer;text-align:center;padding:10px 6px">
-      <div style="font-size:1.3em;margin-bottom:2px">06</div><h3>Projektarbeit</h3><p>从解题到提问</p></div>
+      <div style="font-size:1.4em;margin-bottom:2px">06</div><h3>Projektarbeit</h3><p>从解题到提问</p></div>
   </div>
 </div>
 
@@ -180,31 +179,31 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   <div class="content-title"><span class="de">Datengestützte Diagnose</span>基于学习通数据的诊断</div>
   <div class="stat-grid">
     <div class="stat-card"><div class="num" style="color:#e8c45a">84</div><div class="label">考试均分</div></div>
-    <div class="stat-card"><div class="num" style="color:#e8c45a">87%</div><div class="label">知识点掌握度</div></div>
-    <div class="stat-card"><div class="num green">+34%</div><div class="label">近7日访问增长</div></div>
-    <div class="stat-card"><div class="num" style="color:#f0b42b">3.3</div><div class="label">任务点均完成/9</div></div>
-    <div class="stat-card"><div class="num red">0</div><div class="label">AI智能体会话</div></div>
+    <div class="stat-card"><div class="num" style="color:#e8c45a">87%</div><div class="label">掌握度</div></div>
+    <div class="stat-card"><div class="num green">+34%</div><div class="label">7日访问增长</div></div>
+    <div class="stat-card"><div class="num" style="color:#f0b42b">3.3</div><div class="label">任务点/9</div></div>
+    <div class="stat-card"><div class="num red">0</div><div class="label">AI会话</div></div>
   </div>
   <div class="grid-2" style="margin-top:4px">
     <div>
-      <div class="card" style="margin-bottom:3px;padding:6px 10px"><h3>🧠 学情分析偏认知</h3><p>掌握度87%但任务点均3.3/9（76%学生完成5个以下）。<span style="color:var(--gold-light)">「健康·情感·创新」</span>维度空白。</p></div>
-      <div class="card" style="padding:6px 10px"><h3>💡 创新能力不足</h3><p>85%学生80+分，但论坛仅3话题48回复。高认知低创新。</p></div>
+      <div class="card" style="margin-bottom:4px;padding:8px 12px"><h3>🧠 学情分析偏认知</h3><p>掌握度87%但均完成3.3/9任务点。<span style="color:var(--gold-light)">「健康·情感·创新」</span>维度空白。</p></div>
+      <div class="card" style="padding:8px 12px"><h3>💡 创新能力不足</h3><p>85%学生80+分，论坛仅3话题48回复。高认知低创新。</p></div>
     </div>
     <div>
-      <div class="card" style="margin-bottom:3px;padding:6px 10px"><h3>❓ 忽视提问能力</h3><p>AI智能体<span style="color:var(--red);font-weight:700">会话0次</span>，仅3人向AI提问8次。</p></div>
-      <div class="card" style="padding:6px 10px"><h3>📊 AI未进入学生端</h3><p>PV 24,396但AI会话=0。AI停留在教师端（备课+出题）。</p></div>
+      <div class="card" style="margin-bottom:4px;padding:8px 12px"><h3>❓ 忽视提问能力</h3><p>AI智能体<span style="color:var(--red);font-weight:700">会话0次</span>，仅3人向AI提问8次。</p></div>
+      <div class="card" style="padding:8px 12px"><h3>📊 AI未进入学生端</h3><p>PV 24,396但AI会话=0。AI停留在教师端（备课+出题）。</p></div>
     </div>
   </div>
-  <div class="highlight-box" style="margin-top:2px;padding:4px 10px"><p style="font-size:.62em"><strong>诊断结论：</strong>非认知维度空白、创造性表达缺失、AI交互0启动——三项叠加=AI+升级第一性出发点。</p></div>
+  <div class="highlight-box" style="margin-top:2px;padding:5px 12px"><p style="font-size:.7em"><strong>诊断结论：</strong>非认知维度空白、创造性表达缺失、AI交互0启动——三项叠加=AI+升级第一性出发点。</p></div>
 </div>
 
 <!-- S4 SMALL LANG -->
 <div class="slide content" data-index="4">
-  <div class="content-title"><span class="de">Besonderheiten</span>小语种教学的特殊约束</div>
+  <div class="content-title"><span class="de">Besonderheiten</span>小语种的特殊约束</div>
   <div class="grid-3">
-    <div class="card" style="text-align:center"><div style="font-size:1.4em;margin-bottom:3px">🎯</div><h3>零起点 · 21人</h3><p>学生无基础，AI辅助以中文为媒介、德语为结果。</p></div>
-    <div class="card" style="text-align:center"><div style="font-size:1.4em;margin-bottom:3px">🧩</div><h3>强互动需求</h3><p>发音模仿+对话练习需即时反馈。API延迟和成本瓶颈。</p></div>
-    <div class="card" style="text-align:center"><div style="font-size:1.4em;margin-bottom:3px">📚</div><h3>有限语料</h3><p>德语教材语料远少于英语。87知识图谱是核心资产。</p></div>
+    <div class="card" style="text-align:center"><div style="font-size:1.5em;margin-bottom:3px">🎯</div><h3>零起点 · 21人</h3><p>学生无基础，AI辅助以中文为媒介、德语为结果。</p></div>
+    <div class="card" style="text-align:center"><div style="font-size:1.5em;margin-bottom:3px">🧩</div><h3>强互动需求</h3><p>发音模仿+对话练习需即时反馈。API延迟和成本瓶颈。</p></div>
+    <div class="card" style="text-align:center"><div style="font-size:1.5em;margin-bottom:3px">📚</div><h3>有限语料</h3><p>德语教材语料远少于英语。87知识图谱是核心资产。</p></div>
   </div>
   <div class="highlight-box"><p><strong>公式：</strong>零起点×强互动×有限语料=需定制化方案</p></div>
 </div>
@@ -218,25 +217,25 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   <div class="section-divider"></div>
 </div>
 
-<!-- S6 LEARNING STATS WITH SCREENSHOT -->
+<!-- S6 LEARNING STATS -->
 <div class="slide content" data-index="6">
   <div class="content-title"><span class="de">Lernstatistik aus Chaoxing</span>学习通真实学情数据</div>
   <div class="link-banner"><span class="label">🔗 对应问题</span> <span>#1 学情分析偏认知</span></div>
-  <div style="display:flex;gap:12px;max-width:1020px;width:100%">
+  <div style="display:flex;gap:14px;max-width:1020px;width:100%">
     <div style="flex:1;min-width:0">
-      <div class="stat-grid" style="margin-bottom:3px">
+      <div class="stat-grid" style="margin-bottom:4px">
         <div class="stat-card"><div class="num" style="color:#e8c45a">21</div><div class="label">学生</div></div>
         <div class="stat-card"><div class="num green">3,252</div><div class="label">活动</div></div>
         <div class="stat-card"><div class="num" style="color:#e8c45a">24,396</div><div class="label">PV</div></div>
         <div class="stat-card"><div class="num" style="color:#f0b42b">6.9min</div><div class="label">均观看</div></div>
         <div class="stat-card"><div class="num" style="color:#e8c45a">98%</div><div class="label">知识点完成</div></div>
       </div>
-      <div class="card" style="padding:6px 8px;margin-bottom:3px"><h3 style="font-size:.65em">📊 考试5次·均分84</h3>
+      <div class="card" style="padding:7px 10px;margin-bottom:4px"><h3>📊 考试5次·均分84</h3>
         <div class="bar-row"><span class="bar-label">80-100</span><div class="bar-track"><div class="bar-fill" style="width:75%;background:linear-gradient(90deg,#e8c45a,rgba(232,196,90,.3))"></div></div><span class="bar-num">15人</span></div>
         <div class="bar-row"><span class="bar-label">60-79</span><div class="bar-track"><div class="bar-fill" style="width:20%;background:rgba(240,180,43,.5)"></div></div><span class="bar-num">4人</span></div>
         <div class="bar-row"><span class="bar-label">&lt;60</span><div class="bar-track"><div class="bar-fill" style="width:5%;background:var(--red)"></div></div><span class="bar-num">1人</span></div>
       </div>
-      <div class="card" style="padding:6px 8px"><h3 style="font-size:.65em">🧠 知识点87个·掌握度87%</h3>
+      <div class="card" style="padding:7px 10px"><h3>🧠 知识点87个·掌握度87%</h3>
         <div class="bar-row"><span class="bar-label">80-100%</span><div class="bar-track"><div class="bar-fill" style="width:81%;background:linear-gradient(90deg,#22b8b0,rgba(34,184,176,.3))"></div></div><span class="bar-num">17人</span></div>
         <div class="bar-row"><span class="bar-label">60-79%</span><div class="bar-track"><div class="bar-fill" style="width:19%;background:rgba(240,180,43,.5)"></div></div><span class="bar-num">4人</span></div>
       </div>
@@ -253,33 +252,33 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   <div class="content-title"><span class="de">Cluster + Ergebnisse</span>聚类分析与学生画像</div>
   <div class="grid-2">
     <div>
-      <div class="grid-4" style="margin-bottom:3px;gap:4px">
-        <div class="profile-card type1" style="padding:5px"><div class="emoji">📖</div><div class="pname">勤奋跟随42%</div></div>
-        <div class="profile-card type2" style="padding:5px"><div class="emoji">🔍</div><div class="pname">主动探索23%</div></div>
-        <div class="profile-card type3" style="padding:5px"><div class="emoji">📚</div><div class="pname">基础薄弱18%</div></div>
-        <div class="profile-card type4" style="padding:5px"><div class="emoji">⏳</div><div class="pname">间断参与17%</div></div>
+      <div class="grid-4" style="margin-bottom:4px;gap:5px">
+        <div class="profile-card type1" style="padding:6px"><div class="emoji">📖</div><div class="pname">勤奋跟随42%</div></div>
+        <div class="profile-card type2" style="padding:6px"><div class="emoji">🔍</div><div class="pname">主动探索23%</div></div>
+        <div class="profile-card type3" style="padding:6px"><div class="emoji">📚</div><div class="pname">基础薄弱18%</div></div>
+        <div class="profile-card type4" style="padding:6px"><div class="emoji">⏳</div><div class="pname">间断参与17%</div></div>
       </div>
-      <div class="card" style="padding:6px 9px"><h3>大模型聚类输出</h3>
+      <div class="card" style="padding:8px 10px"><h3>大模型聚类输出</h3>
         <div class="llm-output"><div class="title">📊 K-Means (N=21)</div>C0 勤奋跟随42%: 高完成·低互动<br>C1 主动探索23%: 高互动·多提问<br>C2 基础薄弱18%: 低成绩·多回看<br>C3 间断参与17%: 登录不稳·延迟<br>r(视频↔成绩)=0.71 r(互动↔能力)=0.63</div></div>
     </div>
     <div>
-      <div class="card" style="margin-bottom:3px;padding:6px 9px"><h3>分组后成绩追踪</h3>
-        <div style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.52em"><strong style="color:var(--gold-light)">C0</strong> 76→82 ↑6.3%</div>
-        <div style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.52em"><strong style="color:var(--gold-light)">C1</strong> 71→79 ↑8.5%</div>
-        <div style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.52em"><strong style="color:var(--gold-light)">C2</strong> 52→58 ↑5.8% 回看42%</div>
-        <div style="padding:3px 0;font-size:.52em"><strong style="color:var(--gold-light)">C3</strong> 48→51 ↑3.1% 退课风险</div>
+      <div class="card" style="margin-bottom:4px;padding:8px 10px"><h3>分组后成绩追踪</h3>
+        <div style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.6em"><strong style="color:var(--gold-light)">C0</strong> 76→82 ↑6.3%</div>
+        <div style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.6em"><strong style="color:var(--gold-light)">C1</strong> 71→79 ↑8.5%</div>
+        <div style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.6em"><strong style="color:var(--gold-light)">C2</strong> 52→58 ↑5.8% 回看42%</div>
+        <div style="padding:4px 0;font-size:.6em"><strong style="color:var(--gold-light)">C3</strong> 48→51 ↑3.1% 退课风险</div>
       </div>
-      <div class="card" style="padding:6px 9px"><h3>闭环验证</h3>
-        <div class="flow-row" style="margin:3px 0;gap:2px">
-          <div class="flow-step" style="padding:2px 5px;min-width:38px"><div class="name" style="font-size:.48em">采集</div></div>
-          <div class="flow-arrow" style="font-size:.5em">→</div>
-          <div class="flow-step" style="padding:2px 5px;min-width:38px"><div class="name" style="font-size:.48em">聚类</div></div>
-          <div class="flow-arrow" style="font-size:.5em">→</div>
-          <div class="flow-step" style="padding:2px 5px;min-width:38px"><div class="name" style="font-size:.48em">策略</div></div>
-          <div class="flow-arrow" style="font-size:.5em">→</div>
-          <div class="flow-step" style="padding:2px 5px;min-width:38px"><div class="name" style="font-size:.48em">验证</div></div>
+      <div class="card" style="padding:8px 10px"><h3>闭环验证</h3>
+        <div class="flow-row" style="margin:4px 0;gap:3px">
+          <div class="flow-step" style="padding:3px 6px;min-width:42px"><div class="name" style="font-size:.5em">采集</div></div>
+          <div class="flow-arrow" style="font-size:.55em">→</div>
+          <div class="flow-step" style="padding:3px 6px;min-width:42px"><div class="name" style="font-size:.5em">聚类</div></div>
+          <div class="flow-arrow" style="font-size:.55em">→</div>
+          <div class="flow-step" style="padding:3px 6px;min-width:42px"><div class="name" style="font-size:.5em">策略</div></div>
+          <div class="flow-arrow" style="font-size:.55em">→</div>
+          <div class="flow-step" style="padding:3px 6px;min-width:42px"><div class="name" style="font-size:.5em">验证</div></div>
         </div>
-        <p style="font-size:.42em;color:var(--text3)">AvsB对照组·每4周一迭代</p></div>
+        <p style="font-size:.5em;color:var(--text3)">AvsB对照组·每4周一迭代</p></div>
     </div>
   </div>
 </div>
@@ -293,21 +292,21 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   <div class="section-divider"></div>
 </div>
 
-<!-- S9 COURSE MAP WITH SCREENSHOT -->
+<!-- S9 COURSE MAP -->
 <div class="slide content" data-index="9">
   <div class="content-title"><span class="de">Curriculum + Kursgraph</span>课程图谱与AI升级</div>
   <div class="link-banner"><span class="label">🔗 对应问题</span> <span>#2 创新能力不足</span></div>
-  <div style="display:flex;gap:12px;max-width:1020px;width:100%">
+  <div style="display:flex;gap:14px;max-width:1020px;width:100%">
     <div style="flex:1">
       <div class="grid-2" style="gap:5px">
-        <div class="card" style="padding:6px 8px"><h3 style="font-size:.6em;color:#e8c45a">M1 Familie</h3>
-          <p style="font-size:.48em">L1 Familie für mich · L2 Sie oder er · L3 Blick zurück · Denkstation1</p></div>
-        <div class="card" style="padding:6px 8px"><h3 style="font-size:.6em;color:#e8c45a">M2 Natur & Umwelt</h3>
-          <p style="font-size:.48em">L4 In die Ferne · L5 Wo lebt es besser · L6 Andere Länder · Denkstation2</p></div>
-        <div class="card" style="padding:6px 8px"><h3 style="font-size:.6em;color:#e8c45a">M3 Erziehung</h3>
-          <p style="font-size:.48em">L7 Start in die Zukunft · L8 Was will ich · L9 Fit für Bewerbung · Denkstation3</p></div>
-        <div class="card" style="padding:6px 8px"><h3 style="font-size:.6em;color:#e8c45a">M4 Menschen & Medien</h3>
-          <p style="font-size:.48em">L10 Medien wichtig · L11 Nie zu alt · L12 Smartphone · Denkstation4</p></div>
+        <div class="card" style="padding:7px 9px"><h3 style="font-size:.65em;color:#e8c45a">M1 Familie</h3>
+          <p style="font-size:.52em">L1 Familie · L2 Sie oder er · L3 Blick zurück · Denkstation1</p></div>
+        <div class="card" style="padding:7px 9px"><h3 style="font-size:.65em;color:#e8c45a">M2 Natur & Umwelt</h3>
+          <p style="font-size:.52em">L4 In die Ferne · L5 Wo lebt es besser · L6 Andere Länder · Denkstation2</p></div>
+        <div class="card" style="padding:7px 9px"><h3 style="font-size:.65em;color:#e8c45a">M3 Erziehung</h3>
+          <p style="font-size:.52em">L7 Start · L8 Was will ich · L9 Fit für Bewerbung · Denkstation3</p></div>
+        <div class="card" style="padding:7px 9px"><h3 style="font-size:.65em;color:#e8c45a">M4 Menschen & Medien</h3>
+          <p style="font-size:.52em">L10 Medien · L11 Nie zu alt · L12 Smartphone · Denkstation4</p></div>
       </div>
     </div>
     <div style="flex:0 0 300px">
@@ -322,19 +321,19 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   <div class="content-title"><span class="de">Upgrade-Pfad</span>AI升级路径</div>
   <div class="grid-2">
     <div>
-      <div class="card" style="margin-bottom:3px;padding:6px 9px"><h3>✅ 已完成</h3>
-        <p style="font-size:.5em"><span class="tag">Wissensgraph</span><span class="tag">Interakt.Material</span><span class="tag">KI-Video</span><span class="tag">KI-Fragen</span></p></div>
-      <div class="card" style="padding:6px 9px"><h3>🚀 下一步</h3>
-        <ul style="list-style:none"><li style="padding:2px 0;font-size:.5em;color:var(--text2)">• <strong>自适应路径</strong> — 画像驱动</li>
-        <li style="padding:2px 0;font-size:.5em;color:var(--text2)">• <strong>情境对话</strong> — AI交互</li>
-        <li style="padding:2px 0;font-size:.5em;color:var(--text2)">• <strong>语音评测</strong> — 自动纠音</li></ul></div>
+      <div class="card" style="margin-bottom:4px;padding:8px 10px"><h3>✅ 已完成</h3>
+        <p style="font-size:.58em"><span class="tag">Wissensgraph</span><span class="tag">Interakt.Material</span><span class="tag">KI-Video</span><span class="tag">KI-Fragen</span></p></div>
+      <div class="card" style="padding:8px 10px"><h3>🚀 下一步</h3>
+        <ul style="list-style:none"><li style="padding:3px 0;font-size:.58em;color:var(--text2)">• <strong>自适应路径</strong> — 画像驱动</li>
+        <li style="padding:3px 0;font-size:.58em;color:var(--text2)">• <strong>情境对话</strong> — AI交互</li>
+        <li style="padding:3px 0;font-size:.58em;color:var(--text2)">• <strong>语音评测</strong> — 自动纠音</li></ul></div>
     </div>
     <div>
-      <div class="card" style="padding:6px 9px"><h3>📖 AI升级大纲</h3>
-        <div style="padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.5em"><strong style="color:var(--gold-light)">L1 Wiederholung</strong> AI诊断→个性化复习</div>
-        <div style="padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.5em"><strong style="color:var(--gold-light)">L2 Wohnen</strong> AI词汇+数字人情境</div>
-        <div style="padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.5em"><strong style="color:var(--gold-light)">L3 Essen</strong> 数字人点餐+AI语音</div>
-        <div style="padding:2px 0;font-size:.5em"><strong style="color:var(--gold-light)">L4 Freizeit</strong> AI辅助PBL+可视化</div></div>
+      <div class="card" style="padding:8px 10px"><h3>📖 AI升级大纲</h3>
+        <div style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.58em"><strong style="color:var(--gold-light)">L1 Wiederholung</strong> AI诊断→个性化复习</div>
+        <div style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.58em"><strong style="color:var(--gold-light)">L2 Wohnen</strong> AI词汇+数字人情境</div>
+        <div style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.58em"><strong style="color:var(--gold-light)">L3 Essen</strong> 数字人点餐+AI语音</div>
+        <div style="padding:3px 0;font-size:.58em"><strong style="color:var(--gold-light)">L4 Freizeit</strong> AI辅助PBL+可视化</div></div>
     </div>
   </div>
 </div>
@@ -342,14 +341,14 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 <!-- S11 CHAPTER CASE -->
 <div class="slide content" data-index="11">
   <div class="content-title"><span class="de">Fallbeispiel: Essen & Trinken</span>章节升级对比</div>
-  <div class="compare-row" style="margin-bottom:4px">
+  <div class="compare-row" style="margin-bottom:5px">
     <div class="side old-side"><h4 style="color:#c04438">传统</h4>
       <ul><li>📄 PPT展示食物词汇</li><li>📖 跟读记忆</li><li>📝 课本对话填空</li><li>✍️ 课后抄写</li></ul></div>
     <div class="arrow">→</div>
     <div class="side new-side"><h4 style="color:var(--gold)">AI+</h4>
       <ul><li>🧠 AI词汇训练器+遗忘曲线</li><li>👤 数字人虚拟餐厅对话</li><li>🎤 AI发音评分+纠音</li><li>🎯 薄弱点自动出题</li><li>🔗 文化知识关联图谱</li></ul></div>
   </div>
-  <div class="highlight-box" style="margin:0;padding:5px 10px"><p style="font-size:.58em"><strong>人机协同：</strong>AI草案→教师审核→嵌入智能体→课后24h迭代</p></div>
+  <div class="highlight-box" style="margin:0;padding:6px 12px"><p style="font-size:.65em"><strong>人机协同：</strong>AI草案→教师审核→嵌入智能体→课后24h迭代</p></div>
 </div>
 
 <!-- S12 SEC4 -->
@@ -367,20 +366,20 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   <div class="link-banner"><span class="label">🔗 对应</span> <span>#1 健康·情感维度 — 发音健康+开口信心</span></div>
   <div class="grid-2">
     <div>
-      <div class="card" style="margin-bottom:3px;padding:6px 9px"><h3>设计思路</h3>
-        <p style="font-size:.52em">定位：零起点学生标准发音参照系。<br><strong>Prompt→</strong>「为A1级设计3分钟Umlaut ä/ö/ü讲稿，双语字幕·口型示范·错误对比·小练习」</p></div>
-      <div class="card" style="padding:6px 9px;display:flex;align-items:center;gap:5px">
-        <span style="font-size:1em">👤</span><div><h3 style="margin:0">形象设计</h3><p style="font-size:.48em;margin-top:1px">年轻母语者，口型同步，适配微视频</p></div></div>
+      <div class="card" style="margin-bottom:4px;padding:8px 10px"><h3>设计思路</h3>
+        <p style="font-size:.62em">定位：零起点学生标准发音参照系。<br><strong>Prompt→</strong>「为A1级设计3分钟Umlaut ä/ö/ü讲稿，双语字幕·口型示范·错误对比·小练习」</p></div>
+      <div class="card" style="padding:8px 10px;display:flex;align-items:center;gap:6px">
+        <span style="font-size:1.1em">👤</span><div><h3 style="margin:0">形象设计</h3><p style="font-size:.5em;margin-top:1px">年轻母语者，口型同步，适配微视频</p></div></div>
     </div>
     <div>
-      <div class="card" style="margin-bottom:3px;padding:6px 9px"><h3>内容生成流程</h3>
-        <div style="display:flex;flex-direction:column;gap:2px">
-          <div style="display:flex;align-items:center;gap:2px"><span style="width:14px;height:14px;border-radius:7px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.42em;font-weight:700">1</span><span style="font-size:.5em;color:var(--text2)">AI生成讲稿</span></div>
-          <div style="display:flex;align-items:center;gap:2px"><span style="width:14px;height:14px;border-radius:7px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.42em;font-weight:700">2</span><span style="font-size:.5em;color:var(--text2)">口型+语音合成</span></div>
-          <div style="display:flex;align-items:center;gap:2px"><span style="width:14px;height:14px;border-radius:7px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.42em;font-weight:700">3</span><span style="font-size:.5em;color:var(--text2)">教师审核→发布</span></div>
-          <div style="display:flex;align-items:center;gap:2px"><span style="width:14px;height:14px;border-radius:7px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.42em;font-weight:700">4</span><span style="font-size:.5em;color:var(--text2)">学生课后回看</span></div>
+      <div class="card" style="margin-bottom:4px;padding:8px 10px"><h3>内容生成流程</h3>
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <div style="display:flex;align-items:center;gap:3px"><span style="width:16px;height:16px;border-radius:8px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.5em;font-weight:700">1</span><span style="font-size:.55em;color:var(--text2)">AI生成讲稿</span></div>
+          <div style="display:flex;align-items:center;gap:3px"><span style="width:16px;height:16px;border-radius:8px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.5em;font-weight:700">2</span><span style="font-size:.55em;color:var(--text2)">口型+语音合成</span></div>
+          <div style="display:flex;align-items:center;gap:3px"><span style="width:16px;height:16px;border-radius:8px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.5em;font-weight:700">3</span><span style="font-size:.55em;color:var(--text2)">教师审核→发布</span></div>
+          <div style="display:flex;align-items:center;gap:3px"><span style="width:16px;height:16px;border-radius:8px;background:var(--gold-dim);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.5em;font-weight:700">4</span><span style="font-size:.55em;color:var(--text2)">学生课后回看</span></div>
         </div></div>
-      <div class="card" style="padding:6px 9px"><h3>发音模块</h3><p style="font-size:.45em;color:var(--text2)">词汇级：标准音频+慢速+口型 | 句级：跟读评分+纠音</p></div>
+      <div class="card" style="padding:8px 10px"><h3>发音模块</h3><p style="font-size:.5em;color:var(--text2)">词汇级：标准音频+慢速+口型 | 句级：跟读评分+纠音</p></div>
     </div>
   </div>
 </div>
@@ -394,25 +393,25 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   <div class="section-divider"></div>
 </div>
 
-<!-- S15 AI INTERACTION + AGENTS -->
+<!-- S15 AGENTS -->
 <div class="slide content" data-index="15">
   <div class="content-title"><span class="de">KI-Daten + Design</span>AI交互数据与智能体设计</div>
   <div class="link-banner"><span class="label">🔗 对应</span> <span>#3 AI仅赋能教师 — 0会话→学生端未激活</span></div>
-  <div style="display:flex;gap:10px;max-width:1020px;width:100%">
+  <div style="display:flex;gap:12px;max-width:1020px;width:100%">
     <div style="flex:1">
       <div class="stat-grid">
         <div class="stat-card"><div class="num red">0</div><div class="label">AI会话</div></div>
         <div class="stat-card"><div class="num orange">3人</div><div class="label">题目分析</div></div>
         <div class="stat-card"><div class="num orange">8次</div><div class="label">提问次数</div></div>
       </div>
-      <div class="grid-2" style="gap:5px">
-        <div class="card" style="padding:6px 9px"><h3 style="font-size:.58em">🥇 助教·知识库</h3><p style="font-size:.48em">教材语料训练，检索增强回答。如"der/die/das规律"→查+推</p></div>
-        <div class="card" style="padding:6px 9px"><h3 style="font-size:.58em">🥈 学伴·CEFR评价</h3><p style="font-size:.48em">词汇·语法·表达·发音四维评分→等级→推送</p></div>
-        <div class="card" style="padding:6px 9px"><h3 style="font-size:.58em">🥉 功能·工作流</h3><p style="font-size:.48em">出题Flow·纠音Flow·对话Flow·项目Flow</p></div>
-        <div class="card" style="padding:6px 9px;border-color:rgba(232,196,90,.3)"><h3 style="font-size:.58em;color:#f7e29a">🔑 激活路径</h3><p style="font-size:.48em">教学嵌入+界面优化+主动推荐→每课1问</p></div>
+      <div class="grid-2" style="gap:6px">
+        <div class="card" style="padding:8px 10px"><h3 style="font-size:.65em">🥇 助教·知识库</h3><p style="font-size:.55em">教材语料训练，检索增强回答。如"der/die/das规律"→查+推</p></div>
+        <div class="card" style="padding:8px 10px"><h3 style="font-size:.65em">🥈 学伴·CEFR评价</h3><p style="font-size:.55em">词汇·语法·表达·发音四维评分→等级→推送</p></div>
+        <div class="card" style="padding:8px 10px"><h3 style="font-size:.65em">🥉 功能·工作流</h3><p style="font-size:.55em">出题Flow·纠音Flow·对话Flow·项目Flow</p></div>
+        <div class="card" style="padding:8px 10px;border-color:rgba(232,196,90,.3)"><h3 style="font-size:.65em;color:#f7e29a">🔑 激活路径</h3><p style="font-size:.55em">教学嵌入+界面优化+主动推荐→每课1问</p></div>
       </div>
     </div>
-    <div style="flex:0 0 250px">
+    <div style="flex:0 0 260px">
       <div class="screenshot-wrap"><img class="screenshot" src="./assets/interactive-courseware.jpg" alt="交互式课件"></div>
       <div class="screenshot-caption">学习通 · 交互式课件</div>
     </div>
@@ -426,7 +425,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
     <div class="agent-tabs"><div class="agent-tab active" onclick="switchAgent(0)">🤖助教</div><div class="agent-tab" onclick="switchAgent(1)">🧑‍🏫学伴</div><div class="agent-tab" onclick="switchAgent(2)">⚙️功能</div></div>
     <div></div>
   </div>
-  <div class="agent-content" id="agentContent" style="margin-top:-5px">
+  <div class="agent-content" id="agentContent" style="margin-top:-6px">
     <div class="qa active"><div class="label">👤 学生</div><div class="q">"为什么der, die, das难记？"</div><div class="label">🤖 助教·知识库</div><div class="a">"der 68%✅ die 82%✅ das 45%⚠️→阴性-e/-ung/-heit·中性-chen/-ment。15道练习已生成。"</div></div>
     <div class="qa"><div class="label">📝 学生</div><div class="q">"Ich esse ein Apfel."</div><div class="label">🧑‍🏫 学伴·CEFR</div><div class="a">"词汇✅ 语法⚠️→einen·表达✅。CEFR B档→Akkusativ练习。"</div></div>
     <div class="qa"><div class="label">👩‍🏫 教师</div><div class="q">"Akkusativ生成5道A1。"</div><div class="label">⚙️ 出题Flow</div><div class="a">"阳(1,3) 中(2) 阴(4,5)·带解析·可嵌入学习通。"</div></div>
@@ -459,7 +458,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
     <span class="step">🤖AI分析</span><span class="arr">→</span><span class="step">💬德语</span><span class="arr">→</span>
     <span class="step">🎨可视化</span><span class="arr">→</span><span class="step">🤝互评</span>
   </div>
-  <div class="highlight-box" style="margin:4px 0 0;padding:4px 9px"><p style="font-size:.55em"><strong>验收：</strong>成果为可视化产品（仪表盘/纪录片/报告），学生借DeepSeek完成。</p></div>
+  <div class="highlight-box" style="margin:4px 0 0;padding:5px 10px"><p style="font-size:.62em"><strong>验收：</strong>成果为可视化产品（仪表盘/纪录片/报告），学生借DeepSeek完成。</p></div>
 </div>
 
 <!-- S19 SCREENSHOT GALLERY -->
@@ -474,17 +473,17 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 
 <!-- S20 SUMMARY -->
 <div class="slide cover" data-index="20">
-  <div class="end-title" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.4em">Zusammenfassung</div>
-  <div style="font-size:1.4em;font-weight:800;margin-top:5px">总结与展望</div>
-  <div class="section-divider" style="margin:10px auto"></div>
-  <div style="display:flex;flex-direction:column;gap:5px;max-width:520px;width:100%">
-    <div class="card" style="padding:6px 12px;text-align:center"><p style="font-size:.58em">✅ 教师端已就绪 — 图谱87点·互动课件·AI视频·AI出题</p></div>
-    <div class="card" style="padding:6px 12px;text-align:center"><p style="font-size:.58em">🔄 学生端建设中 — 学情分析闭环·智能体矩阵·数字人</p></div>
-    <div class="card" style="padding:6px 12px;text-align:center"><p style="font-size:.58em">🚀 核心挑战 — AI会话0→激活学生端 · 从解题到提问</p></div>
+  <div style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.5em">Zusammenfassung</div>
+  <div style="font-size:1.5em;font-weight:800;margin-top:6px">总结与展望</div>
+  <div class="section-divider" style="margin:12px auto"></div>
+  <div style="display:flex;flex-direction:column;gap:6px;max-width:520px;width:100%">
+    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">✅ 教师端已就绪 — 图谱87点·互动课件·AI视频·AI出题</p></div>
+    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">🔄 学生端建设中 — 学情分析闭环·智能体矩阵·数字人</p></div>
+    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">🚀 核心挑战 — AI会话0→激活学生端 · 从解题到提问</p></div>
   </div>
-  <div class="highlight-box" style="max-width:480px;margin:6px auto 0;padding:5px 10px"><p style="text-align:center;font-size:.58em"><strong style="color:var(--gold)">下一阶段：</strong>从"AI赋能教师"走向"AI赋能学生"</p></div>
-  <div class="deco-line" style="margin:8px auto"></div>
-  <div style="color:var(--text3);margin-top:4px;font-size:.48em">刘燕妮 · 广东外语大学南国商学院 · Grundkurs Deutsch 2</div>
+  <div class="highlight-box" style="max-width:480px;margin:8px auto 0;padding:6px 12px"><p style="text-align:center;font-size:.65em"><strong style="color:var(--gold)">下一阶段：</strong>从"AI赋能教师"走向"AI赋能学生"</p></div>
+  <div class="deco-line" style="margin:10px auto"></div>
+  <div style="color:var(--text3);margin-top:6px;font-size:.5em">刘燕妮 · 广东外语大学南国商学院 · Grundkurs Deutsch 2</div>
 </div>
 
 </div><!-- /slide-container -->
