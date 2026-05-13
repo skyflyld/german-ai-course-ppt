@@ -129,7 +129,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 .slide{top:0;padding:10px 12px 50px;overflow-y:auto;justify-content:flex-start}
 .slide.cover{padding:20px 16px;top:0}
 .slide.section-header{padding:30px 16px;background:radial-gradient(ellipse at 50% 20%,rgba(232,196,90,.06) 0%,transparent 70%),linear-gradient(180deg,#1a2a48,#121e33)}
-.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;gap:8px}
+.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;gap:6px}
 .content-title{font-size:1.2em;margin-bottom:6px}
 .section-title{font-size:1.6em}
 .section-num{font-size:3em;top:2px;right:10px}
@@ -146,7 +146,14 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 .compare-row .side{padding:6px 10px}
 .link-banner{font-size:.55em;padding:3px 8px}
 .nav-dots{bottom:4px;padding:4px 12px;gap:5px}
-.nav-dot{width:10px;height:10px}.click-nav{display:none}}
+.nav-dot{width:10px;height:10px}.click-nav{display:none}
+.slide[data-index="6"]>div[style*="display:flex"],.slide[data-index="9"]>div[style*="display:flex"],.slide[data-index="15"]>div[style*="display:flex"],.slide[data-index="19"]>div[style*="display:flex"]{flex-direction:column!important}
+.slide[data-index="6"] [style*="flex:0 0"],.slide[data-index="9"] [style*="flex:0 0"],.slide[data-index="15"] [style*="flex:0 0"],.slide[data-index="19"] [style*="flex"]{width:100%!important;flex:none!important}
+.slide[data-index="6"]{padding-bottom:60px!important}
+.slide[data-index="16"] .grid-2>.agent-tabs+.grid-2,.slide[data-index="16"] .grid-2>div:empty{display:none}
+.slide[data-index="16"] .grid-2{display:block}
+.slide[data-index="16"] .agent-tabs{overflow-x:auto;white-space:nowrap;gap:2px}
+.slide[data-index="16"] .agent-content{max-width:100%}}
 @media(max-width:480px){
 .slide{padding:8px 8px 40px}
 .content-title{font-size:1em}
@@ -156,7 +163,8 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 .card p{font-size:.6em}
 .top-nav .nav-item{font-size:.42em;padding:0 3px}
 .nav-dots{gap:4px;padding:3px 10px}
-.nav-dot{width:8px;height:8px}}
+.nav-dot{width:8px;height:8px}
+.slide[data-index="16"] .agent-tab{font-size:.55em;padding:4px 8px}}
 </style>
 </head>
 <body>
@@ -179,12 +187,6 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 <div class="slide cover active" data-index="0">
   <div class="cover-title"><span class="de">Grundkurs Deutsch 2</span>AI+智慧课程验收汇报</div>
   <div class="cover-subtitle">授课教师：刘燕妮 · 广东外语大学南国商学院 </div>
-  <div class="cover-tags">
-    <span class="cover-tag">📚 基础德语2 · 21人</span>
-    <span class="cover-tag">📊 活动3,252次 · PV 24,396</span>
-    <span class="cover-tag">🎯 87知识点 · 掌握度87%</span>
-    <span class="cover-tag">🌍 小语种零起点</span>
-  </div>
   <div class="deco-line"></div>
 </div>
 
@@ -228,7 +230,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   </div>
   <div class="grid-2" style="margin-top:6px">
     <div>
-      <div class="card" style="margin-bottom:4px;padding:8px 12px"><h3>🧠 学情分析偏认知</h3><p>掌握度87%但任务点均3.3/9（76%学生完成5个以下）。<span style="color:var(--gold-light)">「健康·情感·创新」</span>维度空白。</p></div>
+      <div class="card" style="margin-bottom:4px;padding:8px 12px"><h3>🌸 学情分析偏认知</h3><p>掌握度87%但任务点均3.3/9（76%学生完成5个以下）。<span style="color:var(--gold-light)">「健康·情感·创新」</span>维度空白。</p></div>
       <div class="card" style="padding:8px 12px"><h3>💡 创新能力不足</h3><p>85%学生80+分，但论坛仅3话题48回复。高认知低创新。</p></div>
     </div>
     <div>
@@ -277,7 +279,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
         <div class="bar-row"><span class="bar-label">60-79</span><div class="bar-track"><div class="bar-fill" style="width:20%;background:rgba(240,180,43,.5)"></div></div><span class="bar-num">4人</span></div>
         <div class="bar-row"><span class="bar-label">&lt;60</span><div class="bar-track"><div class="bar-fill" style="width:5%;background:var(--red)"></div></div><span class="bar-num">1人</span></div>
       </div>
-      <div class="card" style="padding:7px 10px"><h3 style="font-size:.72em">🧠 知识点87个·掌握度87%</h3>
+      <div class="card" style="padding:7px 10px"><h3 style="font-size:.72em">🌸 知识点87个·掌握度87%</h3>
         <div class="bar-row"><span class="bar-label">80-100%</span><div class="bar-track"><div class="bar-fill" style="width:81%;background:linear-gradient(90deg,#22b8b0,rgba(34,184,176,.3))"></div></div><span class="bar-num">17人</span></div>
         <div class="bar-row"><span class="bar-label">60-79%</span><div class="bar-track"><div class="bar-fill" style="width:19%;background:rgba(240,180,43,.5)"></div></div><span class="bar-num">4人</span></div>
       </div>
@@ -396,7 +398,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
       <ul><li>📄 PPT展示食物词汇</li><li>📖 跟读记忆</li><li>📝 课本对话填空</li><li>✍️ 课后抄写</li></ul></div>
     <div class="arrow">→</div>
     <div class="side new-side"><h4 style="color:var(--gold)">AI+</h4>
-      <ul><li>🧠 AI词汇训练器+遗忘曲线</li><li>👤 数字人虚拟餐厅对话</li><li>🎤 AI发音评分+纠音</li><li>🎯 薄弱点自动出题</li><li>🔗 文化知识关联图谱</li></ul></div>
+      <ul><li>🌸 AI词汇训练器+遗忘曲线</li><li>👤 数字人虚拟餐厅对话</li><li>🎤 AI发音评分+纠音</li><li>🎯 薄弱点自动出题</li><li>🔗 文化知识关联图谱</li></ul></div>
   </div>
   <div class="highlight-box" style="margin:0;padding:6px 12px"><p style="font-size:.65em"><strong>人机协同：</strong>AI草案→教师审核→嵌入智能体→课后24h迭代</p></div>
 </div>
@@ -481,19 +483,19 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
   </div>
   <div class="agent-content" id="agentContent" style="margin-top:-6px">
     <div class="qa active"><div class="label">👤 学生</div><div class="q">"为什么der, die, das难记？"</div><div class="label">🤖 助教·知识库</div><div class="a">"der 68%✅ die 82%✅ das 45%⚠️→阴性-e/-ung/-heit·中性-chen/-ment。15道练习已生成。"</div><div style="display:flex;gap:3px;margin-top:3px;flex-wrap:wrap">
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;background:var(--gold-dim);color:var(--gold)">📝 生成练习</span>
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3)">📋 加入错题本</span>
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3)">📤 推送学习通</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;background:var(--gold-dim);color:var(--gold);cursor:pointer">📝 生成练习</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3);cursor:pointer">📋 加入错题本</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3);cursor:pointer">📤 推送学习通</span>
       </div></div>
     <div class="qa"><div class="label">📝 学生</div><div class="q">"Ich esse ein Apfel."</div><div class="label">🧑‍🏫 学伴·CEFR</div><div class="a">"词汇✅ 语法⚠️→einen·表达✅。CEFR B档→Akkusativ练习。"</div><div style="display:flex;gap:3px;margin-top:3px;flex-wrap:wrap">
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;background:var(--gold-dim);color:var(--gold)">📊 查看评分维度</span>
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3)">✏️ 改写建议</span>
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3)">🎤 发音练习</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;background:var(--gold-dim);color:var(--gold);cursor:pointer">📊 查看评分维度</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3);cursor:pointer">✏️ 改写建议</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3);cursor:pointer">🎤 发音练习</span>
       </div></div>
     <div class="qa"><div class="label">👩‍🏫 教师</div><div class="q">"Akkusativ生成5道A1。"</div><div class="label">⚙️ 出题Flow</div><div class="a">"阳(1,3) 中(2) 阴(4,5)·带解析·可嵌入学习通。"</div><div style="display:flex;gap:3px;margin-top:3px;flex-wrap:wrap">
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;background:var(--gold-dim);color:var(--gold)">📎 生成题目</span>
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3)">📦 导出题库</span>
-        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3)">🔗 嵌入课件</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;background:var(--gold-dim);color:var(--gold);cursor:pointer">📎 生成题目</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3);cursor:pointer">📦 导出题库</span>
+        <span style="font-size:.45em;padding:2px 6px;border-radius:4px;border:1px solid rgba(232,196,90,.2);color:var(--text3);cursor:pointer">🔗 嵌入课件</span>
       </div></div>
   </div>
 </div>
