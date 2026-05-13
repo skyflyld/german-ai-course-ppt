@@ -108,6 +108,8 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 .flow-proj .arr{color:var(--text3);font-weight:700}
 
 /* Bigger nav dots with larger hit area */
+.nav-hint,.slide-counter{display:none!important}
+.nav-page{font-size:.5em;color:var(--text3);margin-left:8px;font-family:'Inter',sans-serif;font-weight:600;opacity:.5}
 .nav-dots{position:fixed;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:100;padding:6px 16px;border-radius:16px;background:rgba(10,20,38,.65)}
 .nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(139,149,165,.3);cursor:pointer;transition:all .25s}
 .nav-dot:hover{background:rgba(232,196,90,.5);transform:scale(1.25)}
@@ -120,7 +122,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 <body>
 <div class="stage">
 <div class="top-nav">
-  <div class="logo">✦ D2.0</div>
+
   <div class="nav-items">
     <div class="nav-item" data-target="0">封面</div><div class="nav-item" data-target="1">总览</div>
     <div class="nav-item" data-target="2">01问题</div><div class="nav-item" data-target="5">02学情</div>
