@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>基础德语2 — AI+智慧课程建设汇报</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;background:#0d1525;color:#e8ecf2;overflow:hidden;height:100vh}
+:root{--gold:#e2b84a;--gold-light:#f5dd90;--gold-dim:rgba(226,184,74,.1);--red:#c04438;--panel:rgba(22,36,58,.6);--panel-border:rgba(226,184,74,.12);--text:#e8ecf2;--text2:#9aabbf;--text3:#5e7085}
+.stage{width:100vw;max-width:177.78vh;height:100vh;max-height:56.25vw;margin:0 auto;background:linear-gradient(165deg,#101a2b,#16243d,#1a2b48);display:flex;flex-direction:column;position:relative;font-size:clamp(13px,1.7vw,20px)}
+/* Nav */
+.top-nav{display:flex;align-items:center;height:40px;flex-shrink:0;background:rgba(12,20,36,.9);border-bottom:1px solid var(--panel-border);padding:0 12px;z-index:100}
+.top-nav .nav-item{padding:0 10px;height:40px;line-height:40px;font-size:.65em;color:var(--text3);cursor:pointer;transition:.25s;white-space:nowrap;position:relative}
+.top-nav .nav-item:hover{color:var(--text)}
+.top-nav .nav-item.active{color:var(--gold);font-weight:600}
+.top-nav .nav-item.active::after{content:'';position:absolute;bottom:0;left:4px;right:4px;height:2px;background:var(--gold);border-radius:1px}
+.top-nav .progress{font-size:.6em;color:var(--text3);margin-left:auto;padding:0 8px}
+/* Slides */
+.slides{flex:1;position:relative;overflow:hidden;min-height:0}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px 36px;opacity:0;pointer-events:none;transition:opacity .35s}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.cover{background:radial-gradient(ellipse at 30% 80%,rgba(192,68,56,.1),transparent 60%),radial-gradient(ellipse at 70% 20%,rgba(226,184,74,.08),transparent 50%)}
+/* Cover */
+.cover h1{font-size:2.6em;font-weight:900;text-align:center;line-height:1.25}
+.cover h1 .gold{color:var(--gold)}
+.cover .sub{font-size:.85em;color:var(--text2);margin-top:14px;font-weight:300}
+.cover .tags{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;justify-content:center}
+.cover .tag{padding:4px 16px;border-radius:16px;font-size:.65em;border:1px solid var(--panel-border);background:rgba(22,36,58,.5);color:var(--text2)}
+.cover .line{width:60px;height:2px;margin:16px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
+/* Section header */
+.slide.section-h{background:radial-gradient(ellipse at 50% 30%,rgba(226,184,74,.06),transparent 70%)}
+.section-h .num{font-size:5em;font-weight:900;color:rgba(226,184,74,.04);position:absolute;top:8px;right:24px;line-height:1}
+.section-h h2{font-size:2em;font-weight:800;text-align:center}
+.section-h .sub{color:var(--text2);font-size:.75em;margin-top:8px;text-align:center}
+/* Content cards */
+.card{background:var(--panel);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold));opacity:0;transition:.3s}
+.card:hover::before{opacity:1}
+.card h3{color:var(--gold);font-size:.8em;margin-bottom:6px;font-weight:700}
+.card p,.card li{color:var(--text2);font-size:.68em;line-height:1.6}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:880px;width:100%}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;max-width:920px;width:100%}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;max-width:920px;width:100%}
+.wide{max-width:960px;width:100%}
+/* Stat block */
+.stat-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.stat{text-align:center;padding:12px 20px;background:var(--panel);border:1px solid var(--panel-border);border-radius:8px;min-width:100px}
+.stat .val{font-size:1.8em;font-weight:800;color:var(--gold)}
+.stat .lbl{font-size:.6em;color:var(--text2);margin-top:4px}
+/* Highlight */
+.hl{background:rgba(226,184,74,.06);border-left:2px solid var(--gold);padding:8px 16px;border-radius:0 6px 6px 0;max-width:800px;margin:8px auto}
+.hl p{font-size:.72em;line-height:1.6}
+/* Tool list */
+.tool-list{display:flex;flex-direction:column;gap:8px;max-width:700px;width:100%}
+.tool-item{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--panel);border:1px solid var(--panel-border);border-radius:8px}
+.tool-item .icon{font-size:1.4em;width:36px;text-align:center}
+.tool-item .info{flex:1}
+.tool-item .info strong{color:var(--gold-light);font-size:.75em;display:block}
+.tool-item .info span{color:var(--text2);font-size:.62em}
+.tool-item .status{padding:3px 10px;border-radius:10px;font-size:.6em;font-weight:600}
+.status.done{background:rgba(72,187,120,.2);color:#68d391}
+.status.wip{background:rgba(226,184,74,.15);color:var(--gold-light)}
+/* Gap vs done */
+.comp-row{display:flex;gap:16px;max-width:960px;width:100%}
+.comp-col{flex:1;padding:14px;border-radius:8px}
+.comp-col.done{background:rgba(72,187,120,.06);border:1px solid rgba(72,187,120,.15)}
+.comp-col.gap{background:rgba(192,68,56,.06);border:1px solid rgba(192,68,56,.15)}
+.comp-col h4{font-size:.75em;margin-bottom:8px}
+.comp-col.done h4{color:#68d391}
+.comp-col.gap h4{color:var(--red)}
+.comp-col li{font-size:.62em;color:var(--text2);line-height:1.7;margin-left:14px}
+/* Screenshot placeholder */
+.sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:880px;width:100%}
+.sc-item{text-align:center}
+.sc-item .frame{aspect-ratio:16/10;background:var(--panel);border:1px solid var(--panel-border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:.6em;overflow:hidden}
+.sc-item .cap{font-size:.58em;color:var(--text3);margin-top:4px}
+/* Thank you */
+.thanks{text-align:center}
+.thanks h2{font-size:2.4em;color:var(--gold);margin-bottom:8px}
+.thanks p{color:var(--text2);font-size:.8em;line-height:1.7}
+/* Bottom nav */
+.bottom-nav{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:200}
+.bottom-nav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--panel-border);background:rgba(22,36,58,.8);color:var(--text2);cursor:pointer;font-size:1em;transition:.2s}
+.bottom-nav button:hover{background:rgba(226,184,74,.15);border-color:var(--gold);color:var(--gold)}
+.bottom-nav button:disabled{opacity:.3;cursor:default}
+/* Responsive */
+@media(max-width:800px){.grid2,.grid3,.grid4{grid-template-columns:1fr}.comp-row{flex-direction:column}.stat-row{gap:8px}.stat{padding:8px 14px;min-width:80px}.stat .val{font-size:1.4em}}
+</style>
+</head>
+<body>
+<div class="stage">
+<div class="top-nav" id="topNav"></div>
+<div class="slides" id="slidesContainer"></div>
+<div class="bottom-nav">
+  <button id="prevBtn" disabled>◂</button>
+  <button id="nextBtn">▸</button>
+</div>
+</div>
+
+<script>
+const slides = [
+  // 0: Cover
+  {type:'cover',title:'基础德语2',subtitle:'AI+智慧课程建设与使用情况汇报',sub2:'广东外语大学南国商学院',
+   tags:['知识图谱','AI互动课件','AI视听说','智能题库','学情分析']},
+
+  // 1: 课程概况
+  {type:'section',num:'01',title:'课程概况',sub:'基础数据与课程定位'},
+  {type:'content',html:`
+    <div class="stat-row">
+      <div class="stat"><div class="val">2</div><div class="lbl">学期运行</div></div>
+      <div class="stat"><div class="val">60+</div><div class="lbl">学生人数</div></div>
+      <div class="stat"><div class="val">0</div><div class="lbl">起点（零基础）</div></div>
+      <div class="stat"><div class="val">A1→A2</div><div class="lbl">目标水平</div></div>
+    </div>
+    <div class="wide">
+      <div class="hl"><p><strong>课程特点：</strong>德语属于小语种，学生为零起点。需要大量课堂互动和基础练习。AI技术主要应用于教师前期准备（备课、出题、知识框架），学生端使用率有待提升。</p></div>
+    </div>
+  `},
+
+  // 2: 核心挑战
+  {type:'section',num:'02',title:'核心挑战',sub:'AI在基础德语教学中的融合困境'},
+  {type:'content',html:`
+    <div class="comp-row" style="max-width:960px">
+      <div class="comp-col done"><h4>✅ 已实现</h4>
+        <ul><li>知识图谱 — 课程概念结构化</li><li>AI出题 — 自动生成练习和测验</li><li>AI视频 — 多媒体教学素材</li><li>互动式课件 — 课堂演示</li><li>备课辅助 — 教师端效率提升</li></ul>
+      </div>
+      <div class="comp-col gap"><h4>⚠️ 待突破</h4>
+        <ul><li>学生使用率低 — 语言水平有限，难以自主使用AI工具</li><li>AI不够灵活 — 零起点学生需要大量即时互动反馈</li><li>深度融合不足 — AI仍以教师端为主，未形成教学闭环</li><li>个性化缺失 — 缺乏针对个体学习进度的自适应能力</li></ul>
+      </div>
+    </div>
+  `},
+
+  // 3: 课程知识图谱
+  {type:'section',num:'03',title:'课程知识图谱',sub:'结构化课程内容体系'},
+  {type:'content',html:`
+    <div class="grid2">
+      <div class="card"><h3>📐 知识结构可视化</h3><p>将基础德语2的全部知识点按语法、词汇、交际场景三维度组织为知识图谱，学生可直观看到知识点间的关联和前置依赖。</p></div>
+      <div class="card"><h3>🔗 学习路径导航</h3><p>基于知识图谱的依赖关系，为不同水平学生推荐个性化学习路径，避免零基础学生在复杂知识点前产生挫败感。</p></div>
+      <div class="card"><h3>📊 掌握度热力图</h3><p>将班级整体和个体学生的知识点掌握情况以热力图呈现，教师可一目了然地定位薄弱环节。</p></div>
+      <div class="card"><h3>🔄 动态更新</h3><p>根据教学反馈持续优化图谱结构，新增知识点自动关联已有节点，保持课程体系的活力和完整性。</p></div>
+    </div>
+    <p style="font-size:.6em;color:var(--text3);margin-top:12px">📎 详见飞书文档「基础德语2 AI课程_素材」— 课程图谱截图</p>
+  `},
+
+  // 4: 智能题库
+  {type:'section',num:'04',title:'AI智能题库',sub:'自动出题与智能组卷'},
+  {type:'content',html:`
+    <div class="grid3">
+      <div class="card"><h3>📝 自动出题</h3><p>基于课程知识点自动生成填空题、选择题、句型转换等多种题型，覆盖A1-A2全部语法点。</p></div>
+      <div class="card"><h3>🧩 智能组卷</h3><p>按难度、知识点分布、题型比例自动组卷，支持单元测验和期末综合考试两种模式。</p></div>
+      <div class="card"><h3>📈 难度自适应</h3><p>根据班级历史成绩动态调整题目难度，确保试卷区分度合理，避免过难或过易。</p></div>
+    </div>
+    <div class="hl" style="margin-top:12px"><p><strong>使用数据：</strong>已生成题库涵盖本学期全部8个单元，累计题目200+道，教师出题效率提升约60%。</p></div>
+  `},
+
+  // 5: AI视听说
+  {type:'section',num:'05',title:'AI视听说练习',sub:'多模态语言输入与输出'},
+  {type:'content',html:`
+    <div class="grid2">
+      <div class="card"><h3>🎧 AI听力练习</h3><p>基于课程词汇和语法点自动生成听力材料（TTS），支持正常语速和慢速两种模式，配合理解题检验听力效果。</p></div>
+      <div class="card"><h3>🗣️ AI口语评测</h3><p>学生朗读指定句子，AI评测发音准确度和流利度，给出逐词反馈。支持跟读模式和自由表达模式。</p></div>
+      <div class="card"><h3>📺 AI视频素材</h3><p>利用AI生成与课程主题相关的短视频素材，融入德语国家文化元素，提升学习兴趣和文化理解。</p></div>
+      <div class="card"><h3>📱 多端适配</h3><p>手机端和电脑端均可使用，学生可在课下自主练习。但目前学生自主使用频率偏低——语言门槛是主要障碍。</p></div>
+    </div>
+  `},
+
+  // 6: AI交互式课件
+  {type:'section',num:'06',title:'AI交互式课件',sub:'课堂互动新形态'},
+  {type:'content',html:`
+    <div class="tool-list">
+      <div class="tool-item"><div class="icon">📖</div><div class="info"><strong>「Wie war meine Kindheit?」互动教案</strong><span>5个教学部分，点击逐条揭示，Präteritum语法高亮，动词变位速查表，4道互动练习。吉卜力暖金风格。</span></div><div class="status done">已部署</div></div>
+      <div class="tool-item"><div class="icon">🎯</div><div class="info"><strong>「Deutsch interaktiv」交互式学习模块</strong><span>词汇卡片·语法填空·德中配对·阅读理解·写作练习。即时答题反馈，语音朗读，进度追踪，移动端适配。</span></div><div class="status done">已部署</div></div>
+      <div class="tool-item"><div class="icon">📊</div><div class="info"><strong>AI+智慧课程验收汇报PPT</strong><span>18页交互式幻灯片，黑金设计语言，涵盖课程目标、AI工具矩阵、学生画像、项目画廊。</span></div><div class="status done">已部署</div></div>
+    </div>
+    <div class="hl" style="margin-top:12px"><p><strong>核心痛点：</strong>课件目前以教师课堂演示为主，学生课后回看率低。下一步方向：增加课中即时互动（投票、抢答、实时练习），让学生从"观看者"变为"参与者"。</p></div>
+  `},
+
+  // 7: 课堂报告与学情
+  {type:'section',num:'07',title:'课堂报告与学情统计',sub:'数据驱动的教学决策'},
+  {type:'content',html:`
+    <div class="grid2">
+      <div class="card"><h3>📋 课堂报告</h3><p>每节课后自动生成课堂报告：出勤、知识点覆盖、互动次数、练习正确率。教师可快速回顾教学效果。</p></div>
+      <div class="card"><h3>📊 学情统计</h3><p>按学生、按知识点、按时间维度统计学习数据：答题正确率趋势、薄弱知识点分布、学习投入时长。</p></div>
+      <div class="card"><h3>🎯 精准干预</h3><p>基于学情数据自动识别需要重点关注的学生和知识点，辅助教师进行个别辅导和教学节奏调整。</p></div>
+      <div class="card"><h3>📈 学期对比</h3><p>跨学期数据对比，追踪课程改进效果。验证AI工具引入后的教学质量变化。</p></div>
+    </div>
+  `},
+
+  // 8: 成果与展望
+  {type:'section',num:'08',title:'阶段成果与下一步计划',sub:''},
+  {type:'content',html:`
+    <div class="comp-row" style="max-width:960px">
+      <div class="comp-col done"><h4>✅ 阶段成果</h4>
+        <ul><li>建成课程知识图谱（3维度 × 8单元）</li><li>AI题库覆盖200+题目，出题效率↑60%</li><li>AI视听说练习系统上线（听/说/看三位一体）</li><li>3套交互式课件部署上线</li><li>课堂报告+学情统计系统运行</li><li>获AI+智慧课程建设立项</li></ul>
+      </div>
+      <div class="comp-col gap"><h4>🎯 下一步计划</h4>
+        <ul><li><strong>提升学生使用率：</strong>降低语言门槛，增加中文引导和即时反馈</li><li><strong>课中实时互动：</strong>投票、抢答、实时练习嵌入课件</li><li><strong>自适应学习：</strong>基于学情数据自动推荐个性化练习</li><li><strong>AI口语深度整合：</strong>降低口语练习门槛，提升参与度</li><li><strong>成果量化：</strong>对照实验验证AI工具对成绩的提升效果</li></ul>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:16px"><p><strong>核心方向：</strong>从「教师使用AI辅助教学」升级为「学生使用AI辅助学习」。让AI从幕后走到台前，从备课工具变成学习伙伴。</p></div>
+  `},
+
+  // 9: 致谢
+  {type:'section',num:' ',title:'Danke schön!',sub:'感谢聆听'},
+  {type:'content',html:`
+    <div class="thanks">
+      <p>基础德语2 AI+智慧课程建设</p>
+      <p style="font-size:.65em;color:var(--text3);margin-top:10px">广东外语大学南国商学院</p>
+      <p style="font-size:.6em;color:var(--text3);margin-top:8px">
+        知识图谱 · AI题库 · AI视听说 · 交互式课件 · 学情统计<br>
+        从「教师用AI」到「学生用AI」
+      </p>
+    </div>
+  `},
+];
+
+// Render
+let current=0;
+const topNav=document.getElementById('topNav');
+const container=document.getElementById('slidesContainer');
+
+function renderNav(){
+  const items=['首页','概况','挑战','知识图谱','题库','视听说','课件','学情','展望','致谢'];
+  topNav.innerHTML=items.map((t,i)=>`<div class="nav-item${i===current?' active':''}" onclick="goTo(${i})">${t}</div>`).join('')
+    +`<div class="progress">${current+1}/${slides.length}</div>`;
+}
+
+function renderSlide(s,i){
+  let cls='slide';
+  if(s.type==='cover') cls+=' cover';
+  if(s.type==='section') cls+=' section-h';
+  let inner='';
+  if(s.type==='cover'){
+    inner=`<h1><span class="gold">${s.title}</span><br>${s.subtitle}</h1>
+      <div class="sub">${s.sub2||''}</div>
+      <div class="tags">${(s.tags||[]).map(t=>`<div class="tag">${t}</div>`).join('')}</div>
+      <div class="line"></div>`;
+  }else if(s.type==='section'){
+    inner=`<div class="num">${s.num}</div><h2>${s.title}</h2><div class="sub">${s.sub}</div>`;
+  }else{
+    inner=s.html||'';
+  }
+  return `<div class="${cls}" id="slide-${i}">${inner}</div>`;
+}
+
+function showSlide(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+  document.getElementById(`slide-${n}`)?.classList.add('active');
+  current=n;
+  document.getElementById('prevBtn').disabled=n===0;
+  document.getElementById('nextBtn').disabled=n===slides.length-1;
+  renderNav();
+}
+
+function goTo(n){showSlide(n)}
+
+container.innerHTML=slides.map((s,i)=>renderSlide(s,i)).join('');
+showSlide(0);
+
+document.getElementById('prevBtn').addEventListener('click',()=>{if(current>0)showSlide(current-1)});
+document.getElementById('nextBtn').addEventListener('click',()=>{if(current<slides.length-1)showSlide(current+1)});
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();if(current<slides.length-1)showSlide(current+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();if(current>0)showSlide(current-1)}
+});
+</script>
+</body>
+</html>
