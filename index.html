@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grundkurs Deutsch 2 — AI+智慧课程验收汇报</title>
+<title>Grundkurs Deutsch 2 — AI在基础德语教学中的应用现状</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700;800&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -171,12 +171,18 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 <div class="stage">
 <div class="top-nav">
 
-  <div class="nav-items">
+    <div class="nav-items">
     <div class="nav-item" data-target="0">封面</div><div class="nav-item" data-target="1">总览</div>
-    <div class="nav-item" data-target="2">01问题</div><div class="nav-item" data-target="5">02学情</div>
-    <div class="nav-item" data-target="8">03内容</div><div class="nav-item" data-target="11">04数字人</div>
-    <div class="nav-item" data-target="14">05智能体</div><div class="nav-item" data-target="17">06项目</div>
-    <div class="nav-item" data-target="19">总结</div>
+    <div class="nav-item" data-target="2">基础</div><div class="nav-item" data-target="3">图谱</div>
+    <div class="nav-item" data-target="4">题库</div><div class="nav-item" data-target="5">视听说</div>
+    <div class="nav-item" data-target="6">课件</div><div class="nav-item" data-target="7">报告</div>
+    <div class="nav-item" data-target="8">学情</div>
+    <div class="nav-item" data-target="9">诊断</div><div class="nav-item" data-target="10">局限</div>
+    <div class="nav-item" data-target="13">学情²</div><div class="nav-item" data-target="17">内容</div>
+    <div class="nav-item" data-target="18">数字人</div><div class="nav-item" data-target="19">智能体</div>
+    <div class="nav-item" data-target="20">项目</div><div class="nav-item" data-target="21">实况</div>
+    <div class="nav-item" data-target="28">总结</div>
+  </div>
   </div>
   <span class="progress-label" id="progressLabel">1 / 21</span>
   <button class="fullscreen-btn" onclick="document.documentElement.requestFullscreen()">⛶</button>
@@ -185,32 +191,120 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 
 <!-- S0 COVER -->
 <div class="slide cover active" data-index="0">
-  <div class="cover-title"><span class="de">Grundkurs Deutsch 2</span>AI+智慧课程验收汇报</div>
-  <div class="cover-subtitle">授课教师：刘燕妮 · 广东外语大学南国商学院 </div>
+  <div class="cover-title"><span class="de">Grundkurs Deutsch 2</span>AI在基础德语教学中的应用现状</div>
+  <div class="cover-subtitle">已使用：知识图谱 · 互动课件 · AI视频 · AI出题 ｜ 核心矛盾：学生端使用率低 · 小语种灵活度不足</div>
+  <div class="cover-subtitle" style="font-size:.75em;margin-top:4px;color:var(--text3)">授课教师：刘燕妮 · 广东外语大学南国商学院</div>
   <div class="deco-line"></div>
 </div>
 
 <!-- S1 OVERVIEW -->
 <div class="slide content" data-index="1">
-  <div class="content-title"><span class="de">Gliederung · 6 Module</span>汇报结构</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;max-width:860px;width:100%">
-    <div class="card" onclick="goTo(2)" style="cursor:pointer;text-align:center;padding:12px 8px">
-      <div style="font-size:1.5em;margin-bottom:2px">01</div><h3>Problemdiagnose</h3><p>基于学习通数据诊断缺口</p></div>
-    <div class="card" onclick="goTo(5)" style="cursor:pointer;text-align:center;padding:12px 8px">
-      <div style="font-size:1.5em;margin-bottom:2px">02</div><h3>Lernanalyse</h3><p>真实学情+4类画像</p></div>
-    <div class="card" onclick="goTo(8)" style="cursor:pointer;text-align:center;padding:12px 8px">
-      <div style="font-size:1.5em;margin-bottom:2px">03</div><h3>KI+Inhalte</h3><p>4模块12课·课程图谱</p></div>
-    <div class="card" onclick="goTo(11)" style="cursor:pointer;text-align:center;padding:12px 8px">
-      <div style="font-size:1.5em;margin-bottom:2px">04</div><h3>Digitaler Avatar</h3><p>数字人·微视频</p></div>
-    <div class="card" onclick="goTo(14)" style="cursor:pointer;text-align:center;padding:12px 8px">
-      <div style="font-size:1.5em;margin-bottom:2px">05</div><h3>KI-Agenten</h3><p>交互数据+设计</p></div>
-    <div class="card" onclick="goTo(17)" style="cursor:pointer;text-align:center;padding:12px 8px">
-      <div style="font-size:1.5em;margin-bottom:2px">06</div><h3>Projektarbeit</h3><p>从解题到提问</p></div>
+  <div class="content-title"><span class="de">Gliederung · 7 Evidenzkategorien</span>汇报结构：AI应用全景</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;max-width:900px;width:100%;margin-bottom:8px">
+    <div class="card" onclick="goTo(2)" style="cursor:pointer;text-align:center;padding:10px 6px"><div style="font-size:1.2em;margin-bottom:2px">📊</div><h3 style="font-size:.68em">基础数据</h3><p style="font-size:.55em">使用情况统计</p></div>
+    <div class="card" onclick="goTo(3)" style="cursor:pointer;text-align:center;padding:10px 6px"><div style="font-size:1.2em;margin-bottom:2px">🔗</div><h3 style="font-size:.68em">课程图谱</h3><p style="font-size:.55em">知识结构可视化</p></div>
+    <div class="card" onclick="goTo(4)" style="cursor:pointer;text-align:center;padding:10px 6px"><div style="font-size:1.2em;margin-bottom:2px">📝</div><h3 style="font-size:.68em">题库</h3><p style="font-size:.55em">AI出题系统</p></div>
+    <div class="card" onclick="goTo(5)" style="cursor:pointer;text-align:center;padding:10px 6px"><div style="font-size:1.2em;margin-bottom:2px">🎬</div><h3 style="font-size:.68em">视听说</h3><p style="font-size:.55em">AI练习系统</p></div>
+    <div class="card" onclick="goTo(6)" style="cursor:pointer;text-align:center;padding:10px 6px"><div style="font-size:1.2em;margin-bottom:2px">📱</div><h3 style="font-size:.68em">交互课件</h3><p style="font-size:.55em">AI互动页面</p></div>
+    <div class="card" onclick="goTo(7)" style="cursor:pointer;text-align:center;padding:10px 6px"><div style="font-size:1.2em;margin-bottom:2px">📋</div><h3 style="font-size:.68em">课堂报告</h3><p style="font-size:.55em">AI分析报表</p></div>
+    <div class="card" onclick="goTo(8)" style="cursor:pointer;text-align:center;padding:10px 6px"><div style="font-size:1.2em;margin-bottom:2px">📈</div><h3 style="font-size:.68em">学情统计</h3><p style="font-size:.55em">学习行为数据</p></div>
+    <div class="card" onclick="goTo(9)" style="cursor:pointer;text-align:center;padding:10px 6px;border-color:rgba(192,68,56,.25)"><div style="font-size:1.2em;margin-bottom:2px">⚠️</div><h3 style="font-size:.68em;color:var(--red)">诊断与局限</h3><p style="font-size:.55em">核心矛盾分析</p></div>
+  </div>
+</div>
+
+<!-- S2 BASIC DATA -->
+<div class="slide content" data-index="2">
+  <div class="content-title"><span class="de">Nutzungsdaten · Übersicht</span>基础数据：AI功能使用概览</div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="num" style="color:#e8c45a">87</div><div class="label">知识图谱节点</div></div>
+    <div class="stat-card"><div class="num" style="color:#22b8b0">12</div><div class="label">互动课件/课</div></div>
+    <div class="stat-card"><div class="num" style="color:#e8c45a">200+</div><div class="label">AI生成题目</div></div>
+    <div class="stat-card"><div class="num" style="color:#f0b42b">30+</div><div class="label">AI微视频</div></div>
+    <div class="stat-card"><div class="num red">0</div><div class="label">学生AI会话</div></div>
+  </div>
+  <div class="grid-2" style="margin-top:8px">
+    <div class="card" style="padding:8px 12px"><h3>✅ 教师端已激活</h3><p style="font-size:.6em">AI辅助备课出题·知识框架构建·课程图谱生成·互动课件制作·AI视频生成</p></div>
+    <div class="card" style="padding:8px 12px;border-color:rgba(192,68,56,.25)"><h3 style="color:var(--red)">❌ 学生端未激活</h3><p style="font-size:.6em">AI智能体会话0次·学生主动提问仅3人8次·语言水平不足导致难以深度融合</p></div>
+  </div>
+  <div class="highlight-box"><p><strong>核心发现：</strong>AI停留在教师端（内容生产），尚未进入学生端（学习过程）。24,396 PV vs 0 AI会话。</p></div>
+</div>
+
+<!-- S3 KNOWLEDGE GRAPH -->
+<div class="slide content" data-index="3">
+  <div class="content-title"><span class="de">Wissensgraph · Kursstruktur</span>课程知识图谱</div>
+  <div style="display:flex;gap:14px;max-width:920px;width:100%">
+    <div style="flex:1">
+      <div class="card" style="padding:10px 14px;margin-bottom:6px"><h3>87个知识点 · 4大模块12课</h3><p style="font-size:.62em">M1 Familie→M2 Natur→M3 Erziehung→M4 Medien。每模块3课+1思考站。</p></div>
+      <div class="card" style="padding:10px 14px"><h3>图谱应用</h3><p style="font-size:.62em">课前导航·薄弱点定位·自适应复习·智能体知识库基础</p></div>
+    </div>
+    <div style="flex:0 0 300px"><div class="screenshot-wrap"><img class="screenshot" src="./assets/knowledge-graph.jpg" alt="知识图谱"><span class="sa sa-1" style="top:4%;left:10%">① 中心节点</span><span class="sa sa-2" style="top:38%;right:4%">② 4大模块</span></div><div class="screenshot-caption">学习通 · 课程知识图谱</div></div>
+  </div>
+</div>
+
+<!-- S4 QUESTION BANK -->
+<div class="slide content" data-index="4">
+  <div class="content-title"><span class="de">KI-Fragenbank</span>AI智能题库</div>
+  <div style="display:flex;gap:14px;max-width:920px;width:100%">
+    <div style="flex:1">
+      <div class="stat-grid" style="margin-bottom:6px"><div class="stat-card"><div class="num" style="color:#e8c45a">200+</div><div class="label">题目总量</div></div><div class="stat-card"><div class="num green">5</div><div class="label">题型覆盖</div></div><div class="stat-card"><div class="num" style="color:#e8c45a">AI</div><div class="label">生成方式</div></div></div>
+      <div class="card" style="padding:8px 12px;margin-bottom:4px"><h3>题目类型</h3><p style="font-size:.6em"><span class="tag">选择</span><span class="tag">填空</span><span class="tag">判断</span><span class="tag">翻译</span><span class="tag">连词成句</span></p></div>
+      <div class="card" style="padding:8px 12px"><h3>AI出题流程</h3><p style="font-size:.6em">教师指定知识点→AI生成+解析→教师审核→发布学习通</p></div>
+    </div>
+    <div style="flex:0 0 280px"><div class="screenshot-wrap"><img class="screenshot" src="./assets/question-bank.jpg" alt="题库"></div><div class="screenshot-caption">学习通 · 题库管理</div></div>
+  </div>
+</div>
+
+<!-- S5 AI AUDIOVISUAL -->
+<div class="slide content" data-index="5">
+  <div class="content-title"><span class="de">KI Hör-Seh-Übungen</span>AI视听说练习系统</div>
+  <div class="grid-3" style="max-width:960px">
+    <div class="card" style="text-align:center;padding:10px 8px"><div style="font-size:1.5em;margin-bottom:4px">👂</div><h3>听力训练</h3><p style="font-size:.6em">AI生成音频·慢速/常速切换·填空听力·语速自适应</p></div>
+    <div class="card" style="text-align:center;padding:10px 8px"><div style="font-size:1.5em;margin-bottom:4px">🗣️</div><h3>口语练习</h3><p style="font-size:.6em">AI发音评测·跟读打分·纠音反馈·对话模拟</p></div>
+    <div class="card" style="text-align:center;padding:10px 8px"><div style="font-size:1.5em;margin-bottom:4px">📖</div><h3>阅读理解</h3><p style="font-size:.6em">AI生成文章·难度分级·词汇注释·理解测验</p></div>
+  </div>
+  <div class="highlight-box" style="margin-top:6px"><p><strong>关键特征：</strong>全部练习由AI自动生成，教师审核后发布。零起点学生以中文为媒介、德语为产出。</p></div>
+  <div style="display:flex;gap:8px;margin-top:6px;max-width:960px"><div style="flex:1"><div style="background:var(--panel);border-radius:5px;padding:4px;border:1px solid var(--panel-border);text-align:center;font-size:.5em;color:var(--text3)">AI语音评测截图</div></div><div style="flex:1"><div style="background:var(--panel);border-radius:5px;padding:4px;border:1px solid var(--panel-border);text-align:center;font-size:.5em;color:var(--text3)">对话练习截图</div></div><div style="flex:1"><div style="background:var(--panel);border-radius:5px;padding:4px;border:1px solid var(--panel-border);text-align:center;font-size:.5em;color:var(--text3)">阅读练习截图</div></div></div>
+</div>
+
+<!-- S6 INTERACTIVE COURSEWARE -->
+<div class="slide content" data-index="6">
+  <div class="content-title"><span class="de">Interaktives KI-Kursmaterial</span>AI交互式课件</div>
+  <div style="display:flex;gap:14px;max-width:920px;width:100%">
+    <div style="flex:1">
+      <div class="card" style="padding:8px 12px;margin-bottom:6px"><h3>课件特性</h3><p style="font-size:.62em">AI驱动内容生成·自适应难度·内置互动练习·即时反馈·知识点关联</p></div>
+      <div class="card" style="padding:8px 12px;margin-bottom:6px"><h3>覆盖范围</h3><p style="font-size:.62em">12课全部配备·每课2-4个互动模块·配合学习通任务点</p></div>
+      <div class="stat-grid"><div class="stat-card"><div class="num" style="color:#e8c45a">12</div><div class="label">课件/课</div></div><div class="stat-card"><div class="num green">3,252</div><div class="label">章节活动</div></div></div>
+    </div>
+    <div style="flex:0 0 260px"><div class="screenshot-wrap"><img class="screenshot" src="./assets/interactive-courseware.jpg" alt="交互式课件"></div><div class="screenshot-caption">学习通 · 交互式课件</div></div>
+  </div>
+</div>
+
+<!-- S7 CLASS REPORT -->
+<div class="slide content" data-index="7">
+  <div class="content-title"><span class="de">KI-Unterrichtsbericht</span>AI课堂分析报告</div>
+  <div class="grid-2" style="max-width:900px">
+    <div class="card" style="padding:10px 14px"><h3>报告内容</h3><p style="font-size:.6em">每课自动生成学情分析：知识点掌握热力图·薄弱环节标注·参与度统计·干预建议</p></div>
+    <div class="card" style="padding:10px 14px"><h3>使用方式</h3><p style="font-size:.6em">课后自动推送·教师快速扫描·针对性调整下一次教学内容·趋势追踪</p></div>
+  </div>
+  <div style="margin-top:6px;max-width:900px;width:100%"><div style="background:var(--panel);border-radius:5px;padding:8px;border:1px solid var(--panel-border);text-align:center;font-size:.5em;color:var(--text3)">课堂报告截图（学习通后台）</div></div>
+  <div class="highlight-box" style="margin-top:6px"><p><strong>AI角色：</strong>数据收集→自动分析→可视化→教学建议。将教师从手动统计中解放。</p></div>
+</div>
+
+<!-- S8 LEARNING ANALYTICS -->
+<div class="slide content" data-index="8">
+  <div class="content-title"><span class="de">Lernverhaltensdaten</span>学情数据统计</div>
+  <div style="display:flex;gap:14px;max-width:920px;width:100%">
+    <div style="flex:1">
+      <div class="stat-grid" style="margin-bottom:6px"><div class="stat-card"><div class="num" style="color:#e8c45a">21</div><div class="label">学生</div></div><div class="stat-card"><div class="num green">3,252</div><div class="label">活动</div></div><div class="stat-card"><div class="num" style="color:#e8c45a">24,396</div><div class="label">PV</div></div><div class="stat-card"><div class="num" style="color:#f0b42b">87%</div><div class="label">掌握度</div></div><div class="stat-card"><div class="num" style="color:#e8c45a">84</div><div class="label">均分</div></div></div>
+      <div class="card" style="padding:8px 12px;margin-bottom:4px"><h3>关键指标</h3><p style="font-size:.6em">98%知识点完成率·6.9min均观看·近7日+34%·任务点均3.3/9</p></div>
+      <div class="card" style="padding:8px 12px"><h3>数据来源</h3><p style="font-size:.6em">学习通后台：考试记录·知识点进度·任务点完成·论坛互动·AI助教入口</p></div>
+    </div>
+    <div style="flex:0 0 300px"><div class="screenshot-wrap"><img class="screenshot" src="./assets/learning-stats-1.jpg" alt="学情统计"></div><div class="screenshot-caption">学习通后台 · 学情总览</div></div>
   </div>
 </div>
 
 <!-- S2 SEC1 -->
-<div class="slide section-header" data-index="2">
+<div class="slide section-header" data-index="9">
   <div class="section-num">01</div>
   <div class="section-title"><span class="de">Problemdiagnose</span>问题诊断</div>
   <div class="section-desc">基于学习通真实数据的缺口分析</div>
@@ -219,7 +313,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S3 DIAGNOSIS -->
-<div class="slide content" data-index="3">
+<div class="slide content" data-index="10">
   <div class="content-title"><span class="de">Datengestützte Diagnose</span>基于学习通数据的诊断</div>
   <div class="stat-grid">
     <div class="stat-card"><div class="num" style="color:#e8c45a">84</div><div class="label">考试均分</div></div>
@@ -242,7 +336,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S4 SMALL LANG -->
-<div class="slide content" data-index="4">
+<div class="slide content" data-index="11">
   <div class="content-title"><span class="de">Besonderheiten</span>小语种教学的特殊约束</div>
   <div class="grid-3">
     <div class="card" style="text-align:center"><div style="font-size:1.6em;margin-bottom:4px">🎯</div><h3>零起点 · 21人</h3><p>学生无基础，AI辅助以中文为媒介、德语为结果。</p></div>
@@ -253,7 +347,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S5 SEC2 -->
-<div class="slide section-header" data-index="5">
+<div class="slide section-header" data-index="12">
   <div class="section-num">02</div>
   <div class="section-title"><span class="de">Lernanalyse</span>学情分析</div>
   <div class="section-desc">学习通真实数据：考试·知识点·任务点·论坛</div>
@@ -262,7 +356,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S6 LEARNING STATS WITH SCREENSHOT -->
-<div class="slide content" data-index="6">
+<div class="slide content" data-index="13">
   <div class="content-title"><span class="de">Lernstatistik aus Chaoxing</span>学习通真实学情数据</div>
   <div class="link-banner"><span class="label">🔗 对应问题</span> <span>#1 学情分析偏认知</span></div>
   <div style="display:flex;gap:14px;max-width:960px;width:100%">
@@ -296,7 +390,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S7 PROFILE + LLM -->
-<div class="slide content" data-index="7">
+<div class="slide content" data-index="14">
   <div class="content-title"><span class="de">Cluster + Ergebnisse</span>聚类分析与学生画像</div>
   <div class="grid-2">
     <div>
@@ -332,7 +426,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S8 SEC3 -->
-<div class="slide section-header" data-index="8">
+<div class="slide section-header" data-index="15">
   <div class="section-num">03</div>
   <div class="section-title"><span class="de">KI + Inhaltsdesign</span>AI+内容设计</div>
   <div class="section-desc">基于学习通课程图谱升级</div>
@@ -341,7 +435,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S9 COURSE MAP WITH SCREENSHOT -->
-<div class="slide content" data-index="9">
+<div class="slide content" data-index="16">
   <div class="content-title"><span class="de">Curriculum + Kursgraph</span>课程图谱与AI升级</div>
   <div class="link-banner"><span class="label">🔗 对应问题</span> <span>#2 创新能力不足</span></div>
   <div style="display:flex;gap:14px;max-width:960px;width:100%">
@@ -369,7 +463,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S10 UPGRADE -->
-<div class="slide content" data-index="10">
+<div class="slide content" data-index="17">
   <div class="content-title"><span class="de">Upgrade-Pfad</span>AI升级路径</div>
   <div class="grid-2">
     <div>
@@ -391,7 +485,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S11 CHAPTER CASE -->
-<div class="slide content" data-index="11">
+<div class="slide content" data-index="18">
   <div class="content-title"><span class="de">Fallbeispiel: Essen & Trinken</span>章节升级对比</div>
   <div class="compare-row" style="margin-bottom:5px">
     <div class="side old-side"><h4 style="color:#c04438">传统</h4>
@@ -404,7 +498,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S12 SEC4 -->
-<div class="slide section-header" data-index="12">
+<div class="slide section-header" data-index="19">
   <div class="section-num">04</div>
   <div class="section-title"><span class="de">Digitaler Avatar</span>数字人教师设计</div>
   <div class="section-desc">设计思路·形象设计·内容生成·微视频</div>
@@ -413,7 +507,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S13 DIGITAL HUMAN -->
-<div class="slide content" data-index="13">
+<div class="slide content" data-index="20">
   <div class="content-title"><span class="de">Design + Workflow</span>数字人设计</div>
   <div class="link-banner"><span class="label">🔗 对应</span> <span>#1 健康·情感维度 — 发音健康+开口信心</span></div>
   <div class="grid-2">
@@ -437,7 +531,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S14 SEC5 -->
-<div class="slide section-header" data-index="14">
+<div class="slide section-header" data-index="21">
   <div class="section-num">05</div>
   <div class="section-title"><span class="de">KI-Agenten</span>智能体设计</div>
   <div class="section-desc">学习通AI交互数据 + 三类智能体设计</div>
@@ -446,7 +540,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S15 AI INTERACTION + AGENTS -->
-<div class="slide content" data-index="15">
+<div class="slide content" data-index="22">
   <div class="content-title"><span class="de">KI-Daten + Design</span>AI交互数据与智能体设计</div>
   <div class="link-banner"><span class="label">🔗 对应</span> <span>#3 AI仅赋能教师 — 0会话→学生端未激活</span></div>
   <div style="display:flex;gap:10px;max-width:960px;width:100%">
@@ -475,7 +569,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S16 AGENT DEMO -->
-<div class="slide content" data-index="16">
+<div class="slide content" data-index="23">
   <div class="content-title"><span class="de">Agent-Demo</span>智能体对话演示</div>
   <div class="grid-2">
     <div class="agent-tabs"><div class="agent-tab active" onclick="switchAgent(0)">🤖助教</div><div class="agent-tab" onclick="switchAgent(1)">🧑‍🏫学伴</div><div class="agent-tab" onclick="switchAgent(2)">⚙️功能</div></div>
@@ -501,7 +595,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S17 SEC6 -->
-<div class="slide section-header" data-index="17">
+<div class="slide section-header" data-index="24">
   <div class="section-num">06</div>
   <div class="section-title"><span class="de">Projektarbeit</span>项目化作业</div>
   <div class="section-desc">从解题到提问 · 可视化成果</div>
@@ -510,7 +604,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S18 PROJECTS -->
-<div class="slide content" data-index="18">
+<div class="slide content" data-index="25">
   <div class="content-title"><span class="de">Drei Projekte</span>项目化作业设计</div>
   <div class="link-banner"><span class="label">🔗 对应问题</span> <span>#2创新能力不足·#3忽视提问</span></div>
   <div class="grid-3" style="max-width:960px">
@@ -545,7 +639,7 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S19 SCREENSHOT GALLERY -->
-<div class="slide content" data-index="19">
+<div class="slide content" data-index="26">
   <div class="content-title"><span class="de">Chaoxing-Screenshots</span>学习通平台实况</div>
   <div style="display:flex;gap:10px;max-width:920px;width:100%">
     <div style="flex:1"><div class="screenshot-wrap"><img class="screenshot" src="./assets/question-bank.jpg" alt="题库"></div><div class="screenshot-caption">题库管理</div></div>
@@ -555,20 +649,20 @@ body{font-family:'Noto Sans SC','Inter',sans-serif;background:#0a1325;color:#eef
 </div>
 
 <!-- S20 SUMMARY -->
-<div class="slide cover" data-index="20">
-  <div class="end-title" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.5em">Zusammenfassung</div>
+<div class="slide cover" data-index="28">
+  <div class="end-title" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.5em">Zusammenfassung & Ausblick</div>
   <div style="font-size:1.5em;font-weight:800;margin-top:6px">总结与展望</div>
   <div class="section-divider" style="margin:14px auto"></div>
-  <div style="display:flex;flex-direction:column;gap:6px;max-width:500px;width:100%">
-    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">✅ 教师端已就绪 — 图谱87点·互动课件·AI视频·AI出题</p></div>
-    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">🔄 学生端建设中 — 学情分析闭环·智能体矩阵·数字人</p></div>
-    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">🚀 核心挑战 — AI会话0→激活学生端 · 从解题到提问</p></div>
+  <div style="display:flex;flex-direction:column;gap:6px;max-width:550px;width:100%">
+    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">✅ <strong>教师端已就绪</strong> — 7大AI应用模块覆盖教学全流程（图谱·题库·视听说·课件·报告·学情·数字人）</p></div>
+    <div class="card" style="padding:8px 14px;text-align:center;border-color:rgba(192,68,56,.25)"><p style="font-size:.65em"><strong style="color:var(--red)">⚠️ 核心矛盾</strong> — 学生端AI会话0次·小语种灵活度不足·零起点学生难以直接与AI深度交互</p></div>
+    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">🔄 <strong>学生端建设中</strong> — 学情分析闭环·智能体矩阵·数字人24/7发音参照</p></div>
+    <div class="card" style="padding:8px 14px;text-align:center"><p style="font-size:.65em">🚀 <strong>下阶段核心</strong> — 从"AI赋能教师备课"走向"AI嵌入学生学程"：降低门槛·即时反馈·情境交互</p></div>
   </div>
-  <div class="highlight-box" style="max-width:460px;margin:8px auto 0;padding:6px 12px"><p style="text-align:center;font-size:.65em"><strong style="color:var(--gold)">下一阶段：</strong>从"AI赋能教师"走向"AI赋能学生"</p></div>
+  <div class="highlight-box" style="max-width:500px;margin:8px auto 0;padding:6px 12px"><p style="text-align:center;font-size:.65em"><strong style="color:var(--gold)">关键命题：</strong>AI在小语种零起点教学中的深度植入，需要跨越"教师端→学生端"的最后一公里</p></div>
   <div class="deco-line" style="margin:10px auto"></div>
   <div style="color:var(--text3);margin-top:6px;font-size:.55em">刘燕妮 · 广东外语大学南国商学院 · Grundkurs Deutsch 2</div>
 </div>
-
 </div><!-- /slide-container -->
 </div><!-- /stage -->
 
