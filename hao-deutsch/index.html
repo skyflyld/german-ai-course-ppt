@@ -33,19 +33,36 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.8;
-  padding-bottom: 80px;
+  padding-bottom: clamp(48px, 10vw, 80px);
+  -webkit-text-size-adjust: 100%;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ── responsive base ── */
+@media (max-width: 420px) {
+  body { line-height: 1.7; }
+}
+@media (min-width: 900px) {
+  body { line-height: 1.9; }
 }
 
 .hero {
-  min-height: 85vh;
+  min-height: 85svh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: linear-gradient(145deg, #f5efe6 0%, #ede3d0 100%);
-  padding: 40px 24px;
+  padding: 40px 20px;
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 420px) {
+  .hero { min-height: 80svh; padding: 32px 16px; }
+}
+@media (min-width: 768px) and (max-height: 600px) {
+  .hero { min-height: 100svh; padding: 24px 20px; }
 }
 .hero::before {
   content: '';
@@ -63,19 +80,24 @@ body {
   background: radial-gradient(circle, rgba(79,122,90,.10) 0%, transparent 70%);
   pointer-events: none;
 }
-.hero-inner { position: relative; z-index: 1; max-width: 640px; }
+.hero-inner { position: relative; z-index: 1; width: min(640px, calc(100% - 8px)); }
 .hero h1 {
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-size: clamp(1.8rem, 7.5vw, 3.8rem);
   font-weight: 820;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--accent);
-  margin-bottom: 8px;
+  margin-bottom: clamp(6px, 1.5vw, 10px);
 }
 .hero .sub {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-size: clamp(.92rem, 3vw, 1.25rem);
   color: var(--muted);
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 4vw, 28px);
+  padding: 0 4px;
+}
+@media (max-width: 360px) {
+  .hero h1 { font-size: 1.5rem; }
+  .hero .sub { font-size: .85rem; }
 }
 .hero .to {
   font-size: 1rem;
@@ -87,17 +109,19 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 36px;
+  padding: clamp(12px, 3.5vw, 16px) clamp(24px, 8vw, 40px);
   background: var(--accent);
   color: #fff;
   border: none;
   border-radius: 999px;
-  font-size: 1.05rem;
+  font-size: clamp(.95rem, 2.8vw, 1.1rem);
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   transition: transform .2s, box-shadow .2s;
   box-shadow: 0 4px 16px rgba(199,121,67,.30);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .btn-start:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(199,121,67,.40); }
 
@@ -112,71 +136,86 @@ body {
   z-index: 100;
 }
 .nav-dot {
-  width: 10px; height: 10px;
+  width: 12px; height: 12px;
   border-radius: 50%;
   background: var(--border);
   border: none;
   cursor: pointer;
   transition: background .3s, transform .3s;
+  -webkit-tap-highlight-color: transparent;
 }
-.nav-dot.active { background: var(--accent); transform: scale(1.4); }
-@media (max-width: 500px) { .nav-dots { display: none; } }
+.nav-dot.active { background: var(--accent); transform: scale(1.5); }
+@media (max-width: 600px) { .nav-dots { display: none; } }
 
 section {
-  max-width: 720px;
+  width: min(720px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: clamp(36px, 8vw, 64px) 0;
   scroll-margin-top: 20px;
+}
+@media (max-width: 420px) {
+  section { width: calc(100% - 24px); padding: 28px 0; }
+}
+@media (min-width: 900px) {
+  section { padding: 72px 0; }
 }
 .section-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px; height: 36px;
+  width: clamp(30px, 7vw, 38px);
+  height: clamp(30px, 7vw, 38px);
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
-  font-size: .9rem;
+  font-size: clamp(.8rem, 2.2vw, .95rem);
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: clamp(8px, 2vw, 14px);
 }
 section h2 {
-  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  font-size: clamp(1.2rem, 5vw, 1.9rem);
   font-weight: 760;
-  margin-bottom: 20px;
+  margin-bottom: clamp(12px, 3vw, 24px);
   color: var(--text);
 }
 section p, section li {
-  font-size: 1rem;
+  font-size: clamp(.92rem, 2.6vw, 1.05rem);
   color: #3d3529;
-  margin-bottom: 12px;
+  margin-bottom: clamp(8px, 2vw, 14px);
 }
-section ul, section ol { padding-left: 24px; }
-section li { margin-bottom: 8px; }
+section ul, section ol { padding-left: clamp(18px, 4vw, 28px); }
+section li { margin-bottom: clamp(6px, 1.5vw, 10px); }
+
+@media (max-width: 420px) {
+  section ul, section ol { padding-left: 16px; }
+}
 
 .card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px;
-  margin-bottom: 16px;
+  padding: clamp(16px, 4vw, 28px);
+  margin-bottom: clamp(10px, 2vw, 18px);
   box-shadow: var(--shadow);
 }
 .card h3 {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vw, 1.15rem);
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: clamp(6px, 1.5vw, 12px);
   color: var(--accent);
 }
-.card-icon { font-size: 1.6rem; margin-bottom: 6px; }
+.card-icon { font-size: clamp(1.3rem, 4vw, 1.7rem); margin-bottom: clamp(4px, 1vw, 8px); }
 
 .tag {
   display: inline-block;
-  padding: 3px 12px;
+  padding: 2px 10px;
   border-radius: 999px;
-  font-size: .8rem;
+  font-size: clamp(.72rem, 2vw, .85rem);
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+}
+@media (max-width: 420px) {
+  .tag { padding: 2px 8px; font-size: .72rem; }
 }
 .tag-green { background: var(--green-soft); color: var(--green); }
 .tag-blue { background: var(--blue-soft); color: var(--blue); }
@@ -186,63 +225,89 @@ section li { margin-bottom: 8px; }
 .tip-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: clamp(8px, 2vw, 14px);
 }
-@media (max-width: 500px) { .tip-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .tip-grid { grid-template-columns: 1fr; } }
+@media (min-width: 600px) and (max-width: 899px) {
+  .tip-grid { gap: 10px; }
+}
 
 .quote {
   background: var(--accent-soft);
   border-left: 4px solid var(--accent);
   border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 16px 20px;
-  margin: 16px 0;
+  padding: clamp(12px, 3vw, 20px);
+  margin: clamp(12px, 2.5vw, 20px) 0;
   font-style: italic;
   color: #4a3727;
+}
+@media (max-width: 420px) {
+  .quote { border-left-width: 3px; font-size: .93rem; }
 }
 
 .example-box {
   background: var(--blue-soft);
   border-radius: var(--radius);
-  padding: 16px 20px;
-  margin: 12px 0;
+  padding: clamp(12px, 3vw, 18px);
+  margin: clamp(8px, 2vw, 14px) 0;
+}
+@media (max-width: 420px) {
+  .example-box { font-size: .92rem; }
 }
 .example-box .de { font-weight: 600; color: var(--blue); }
-.example-box .zh { color: var(--muted); font-size: .92rem; }
+.example-box .zh { color: var(--muted); font-size: clamp(.82rem, 2.3vw, .92rem); }
 
 .checklist { list-style: none; padding-left: 0 !important; }
 .checklist li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 10px 0;
+  gap: clamp(8px, 2vw, 12px);
+  padding: clamp(8px, 2vw, 12px) 0;
   border-bottom: 1px solid rgba(214,200,174,.4);
+  font-size: clamp(.9rem, 2.5vw, 1rem);
 }
 .checklist li:last-child { border-bottom: none; }
 .checklist .check {
   flex-shrink: 0;
-  width: 22px; height: 22px;
+  width: clamp(20px, 5vw, 24px);
+  height: clamp(20px, 5vw, 24px);
   border-radius: 50%;
   background: var(--green);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .75rem;
+  font-size: clamp(.68rem, 1.8vw, .78rem);
   margin-top: 3px;
 }
 
-.plan-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .92rem; }
+.plan-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px -4px;
+  border-radius: var(--radius);
+}
+.plan-table-wrap::-webkit-scrollbar { height: 4px; }
+.plan-table-wrap::-webkit-scrollbar-track { background: transparent; }
+.plan-table-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.plan-table { width: 100%; min-width: 460px; border-collapse: collapse; font-size: clamp(.82rem, 2.5vw, .95rem); }
 .plan-table th, .plan-table td {
-  padding: 10px 14px;
+  padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 16px);
   border-bottom: 1px solid var(--border);
   text-align: left;
+  vertical-align: top;
 }
 .plan-table th {
   background: var(--accent-soft);
   font-weight: 700;
   color: var(--accent);
+  white-space: nowrap;
 }
 .plan-table tr:last-child td { border-bottom: none; }
+@media (max-width: 480px) {
+  .plan-table th, .plan-table td { padding: 7px 8px; font-size: .8rem; line-height: 1.5; }
+}
 
 .fade-in {
   opacity: 0;
@@ -255,18 +320,21 @@ section li { margin-bottom: 8px; }
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px 28px;
+  padding: clamp(18px, 4vw, 28px);
   box-shadow: var(--shadow);
-  margin-bottom: 40px;
+  margin-bottom: clamp(24px, 6vw, 44px);
 }
 .toc h3 { font-size: 1rem; color: var(--muted); margin-bottom: 12px; }
 .toc a {
-  display: block;
-  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(8px, 2vw, 12px) 0;
   color: var(--text);
   text-decoration: none;
   border-bottom: 1px solid rgba(214,200,174,.3);
   transition: color .2s;
+  font-size: clamp(.9rem, 2.5vw, 1rem);
 }
 .toc a:last-child { border-bottom: none; }
 .toc a:hover { color: var(--accent); }
@@ -285,11 +353,11 @@ section li { margin-bottom: 8px; }
 
 footer {
   text-align: center;
-  padding: 60px 24px;
+  padding: clamp(32px, 10vw, 64px) 16px;
   color: var(--muted);
-  font-size: .85rem;
+  font-size: clamp(.78rem, 2.2vw, .9rem);
 }
-footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
+footer .big-emoji { font-size: clamp(1.8rem, 6vw, 2.6rem); margin-bottom: clamp(8px, 2vw, 14px); }
 </style>
 </head>
 <body>
@@ -504,6 +572,7 @@ footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
   <div class="section-number">6</div>
   <h2>浩浩的4周计划</h2>
   <p>每天真的只花10-15分钟：</p>
+  <div class="plan-table-wrap">
   <table class="plan-table">
     <tr><th>周</th><th>重点</th><th>每天做什么</th><th>预计成果</th></tr>
     <tr>
@@ -531,6 +600,7 @@ footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
       <td>能写简单日记<br>能说出5-10句完整句子</td>
     </tr>
   </table>
+  </div>
 
   <div class="card" style="text-align:center; padding:32px; margin-top:24px;">
     <div style="font-size:2.4rem; margin-bottom:8px;">🚀</div>
