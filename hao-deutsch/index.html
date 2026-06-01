@@ -35,7 +35,6 @@ body {
   padding-bottom: 80px;
 }
 
-/* ── hero ── */
 .hero {
   min-height: 85vh;
   display: flex;
@@ -82,10 +81,7 @@ body {
   color: var(--muted);
   margin-bottom: 40px;
 }
-.hero .to strong {
-  color: var(--accent);
-  font-weight: 700;
-}
+.hero .to strong { color: var(--accent); font-weight: 700; }
 .btn-start {
   display: inline-flex;
   align-items: center;
@@ -104,7 +100,6 @@ body {
 }
 .btn-start:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(199,121,67,.40); }
 
-/* ── nav dots ── */
 .nav-dots {
   position: fixed;
   right: 16px;
@@ -126,7 +121,6 @@ body {
 .nav-dot.active { background: var(--accent); transform: scale(1.4); }
 @media (max-width: 500px) { .nav-dots { display: none; } }
 
-/* ── section ── */
 section {
   max-width: 720px;
   margin: 0 auto;
@@ -151,7 +145,6 @@ section h2 {
   margin-bottom: 20px;
   color: var(--text);
 }
-section h2 .emoji { margin-right: 8px; }
 section p, section li {
   font-size: 1rem;
   color: #3d3529;
@@ -160,7 +153,6 @@ section p, section li {
 section ul, section ol { padding-left: 24px; }
 section li { margin-bottom: 8px; }
 
-/* ── cards ── */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -197,7 +189,6 @@ section li { margin-bottom: 8px; }
 }
 @media (max-width: 500px) { .tip-grid { grid-template-columns: 1fr; } }
 
-/* ── quote ── */
 .quote {
   background: var(--accent-soft);
   border-left: 4px solid var(--accent);
@@ -208,7 +199,6 @@ section li { margin-bottom: 8px; }
   color: #4a3727;
 }
 
-/* ── example ── */
 .example-box {
   background: var(--blue-soft);
   border-radius: var(--radius);
@@ -218,7 +208,6 @@ section li { margin-bottom: 8px; }
 .example-box .de { font-weight: 600; color: var(--blue); }
 .example-box .zh { color: var(--muted); font-size: .92rem; }
 
-/* ── checklist ── */
 .checklist { list-style: none; padding-left: 0 !important; }
 .checklist li {
   display: flex;
@@ -241,52 +230,6 @@ section li { margin-bottom: 8px; }
   margin-top: 3px;
 }
 
-/* ── progress bar ── */
-.progress-track {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  margin-bottom: 40px;
-  box-shadow: var(--shadow);
-}
-.progress-track h3 {
-  font-size: .9rem;
-  color: var(--muted);
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-.progress-bar-bg {
-  height: 8px;
-  background: #e8ddd0;
-  border-radius: 999px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-.progress-bar-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--green), var(--accent));
-  border-radius: 999px;
-  transition: width .6s ease;
-}
-.progress-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: .8rem;
-  color: var(--muted);
-}
-
-/* ── footer ── */
-footer {
-  text-align: center;
-  padding: 60px 24px;
-  color: var(--muted);
-  font-size: .85rem;
-}
-footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
-
-/* ── plan table ── */
 .plan-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .92rem; }
 .plan-table th, .plan-table td {
   padding: 10px 14px;
@@ -300,7 +243,6 @@ footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
 }
 .plan-table tr:last-child td { border-bottom: none; }
 
-/* ── animation ── */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -308,7 +250,6 @@ footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* ── toc ── */
 .toc {
   background: var(--card);
   border: 1px solid var(--border);
@@ -340,178 +281,170 @@ footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
   font-weight: 700;
   margin-right: 8px;
 }
+
+footer {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--muted);
+  font-size: .85rem;
+}
+footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
 </style>
 </head>
 <body>
 
-<!-- ════════ HERO ════════ -->
 <div class="hero" id="top">
   <div class="hero-inner">
     <div style="font-size:3.2rem; margin-bottom:12px;">🇩🇪</div>
     <h1>浩浩的德语学习地图</h1>
     <p class="sub">不是从零开始——是从"有点迷糊"到"真的会了"</p>
-    <p class="to">To: <strong>浩浩</strong> · From: 舅妈和阿riste 🦞</p>
+    <p class="to">To: <strong>浩浩</strong> · From: 舅妈 &amp; Ariste 🦞</p>
     <a href="#toc" class="btn-start">开始学习 →</a>
   </div>
 </div>
 
-<!-- ════════ NAV DOTS ════════ -->
 <nav class="nav-dots" id="navDots"></nav>
 
-<!-- ════════ CONTENT ════════ -->
 <main>
 
-<!-- 目录 -->
 <section id="toc">
-  <div class="toc" id="tocCard">
-    <h3>📖 目录 · 一共 8 站</h3>
-    <a href="#s1"><span class="num">1</span> 学德语最重要的是什么</a>
-    <a href="#s2"><span class="num">2</span> 发音：德语最友好的地方</a>
-    <a href="#s3"><span class="num">3</span> 语法：抓主干，别钻牛角尖</a>
-    <a href="#s4"><span class="num">4</span> 词汇：主题式记忆法</a>
-    <a href="#s5"><span class="num">5</span> 听与说：两条腿走路</a>
-    <a href="#s6"><span class="num">6</span> 每天 10 分钟 > 周末 2 小时</a>
-    <a href="#s7"><span class="num">7</span> 推荐工具 &amp; 避坑指南</a>
-    <a href="#s8"><span class="num">8</span> 浩浩的专属 4 周计划</a>
+  <div class="toc">
+    <h3>📖 目录 · 一共 6 站</h3>
+    <a href="#s1"><span class="num">1</span> 先想清楚再开始</a>
+    <a href="#s2"><span class="num">2</span> 三个核心习惯</a>
+    <a href="#s3"><span class="num">3</span> 听说领先 · 不学哑巴德语</a>
+    <a href="#s4"><span class="num">4</span> 每天10分钟 &gt; 周末2小时</a>
+    <a href="#s5"><span class="num">5</span> 实用工具 &amp; 视听网站</a>
+    <a href="#s6"><span class="num">6</span> 浩浩的4周计划</a>
   </div>
 </section>
 
 <!-- ─── S1 ─── -->
 <section id="s1" class="fade-in">
   <div class="section-number">1</div>
-  <h2><span class="emoji">💭</span>学德语最重要的是什么</h2>
-  <p>浩浩，舅妈说"一两句说不清楚"——因为学德语这件事，<strong>方法对了事半功倍，方法错了事倍功半。</strong></p>
-  <p>先想清楚三个问题：</p>
+  <h2>先想清楚再开始</h2>
+  <p>浩浩，舅妈说"一两句说不清楚"——不是因为德语难，是因为<strong>学德语的方法不对，事倍功半。</strong></p>
+  <p>开始之前，想清楚两件事：</p>
   <div class="card">
     <div class="card-icon">🎯</div>
-    <h3>你的目标是什么</h3>
-    <p>为了考试？能日常交流？看懂德语视频/文章？目标不同，路径完全不同。<br><strong>先定目标，再选路径。</strong></p>
+    <h3>你的目标是什么？</h3>
+    <p>考试？日常交流？看懂视频/文章？<br>目标不同，路径完全不同。<strong>先定目标再选路。</strong></p>
   </div>
   <div class="card">
     <div class="card-icon">❤️</div>
-    <h3>兴趣是最好的引擎</h3>
-    <p>德语有让你感兴趣的东西吗？乐队？足球？科技？哲学家？找到它，用它驱动学习——<strong>不要为学德语而学德语。</strong></p>
-    <div class="example-box">
-      <div class="de">Beispiel: 喜欢足球 → 看德甲新闻标题 → 学"das Tor"（进球）→ 自然记住</div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-icon">🔄</div>
-    <h3>接受"边学边忘"</h3>
-    <p>忘了很正常。忘 3 次记 4 次，你就记住了。<strong>重复不是笨办法，是唯一办法。</strong></p>
+    <h3>你对什么感兴趣？</h3>
+    <p>德语有让你感兴趣的东西吗？足球、科技、音乐、哲学？<br>找到了，用它驱动学习——<strong>不要为学德语而学德语。</strong></p>
   </div>
 </section>
 
 <!-- ─── S2 ─── -->
 <section id="s2" class="fade-in">
   <div class="section-number">2</div>
-  <h2><span class="emoji">🔊</span>发音：德语最友好的地方</h2>
-  <p><strong>好消息：</strong>德语发音比英语规则得多。基本上看到就能读出来，不用像英语那样查音标。</p>
-  <div class="tip-grid">
-    <div class="card">
-      <span class="tag tag-green">✅ 容易</span>
-      <h3>拼读规则固定</h3>
-      <p>每个字母/字母组合基本只有一个读音。不像英语 enough/though/through 三个完全不同。</p>
+  <h2>三个核心习惯</h2>
+  <p>不用学很多方法，先养成三个习惯就够了。</p>
+
+  <div class="card">
+    <span class="tag tag-green">①</span>
+    <h3>单词一定要边读边记</h3>
+    <p>发音你应该学过了，这里只说一句：</p>
+    <p style="font-size:1.05rem;"><strong>每个新单词先大声读3遍，再写下来。</strong></p>
+    <p>德语发音规则固定，看到能读、读了能拼。出声读记单词，拼写自然就记住了。默读效果差一半。</p>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-blue">②</span>
+    <h3>单词要放在句子里面记</h3>
+    <p>只背单词表 = 背了也不会用。背单词的同时，一定要知道它怎么用在句子里。</p>
+    <div class="example-box">
+      <div class="de">✗ laufen → 跑<br>
+      ✓ Ich <strong>laufe</strong> jeden Morgen. → 我每天早晨跑步。</div>
+      <div class="zh">一句话记住：动词、搭配、用法，全有了。</div>
     </div>
-    <div class="card">
-      <span class="tag tag-blue">💡 诀窍</span>
-      <h3>先攻"小舌音"</h3>
-      <p>德语 r 是喉咙发的（像漱口），每天练 1 分钟，一周拿下。</p>
-    </div>
-    <div class="card">
-      <span class="tag tag-green">✅ 轻松</span>
-      <h3>元音分长短</h3>
-      <p>规则简单：双写元音或元音+一个辅音 → 长音；元音+两个辅音 → 短音。</p>
-    </div>
-    <div class="card">
-      <span class="tag tag-blue">💡 诀窍</span>
-      <h3>先读再记单词</h3>
-      <p>每个新单词先大声读 3 遍。读对了，拼写就记了一大半。</p>
+    <p><strong>重点：德语的动词用法特别重要。</strong>动词决定句子的结构——学了动词就知道它后面跟什么（宾语、方向、介词）。每个新动词背一个例句。</p>
+    <div class="example-box">
+      <div class="de">helfen (+ Dativ) → Ich <strong>helfe</strong> dir.<br>
+      sich freuen auf → Ich <strong>freue</strong> mich auf den Urlaub.</div>
     </div>
   </div>
-  <div class="quote">
-    <strong>给浩浩的建议：</strong>花一周时间把德语字母和基本发音规则过一遍。这周的投资，后面每个单词都省时间。
+
+  <div class="card">
+    <span class="tag tag-gold">③</span>
+    <h3>语法：记基本规律，够用就行</h3>
+    <p><strong>不要一开始就去钻研语法书。</strong></p>
+    <p>语法是在使用中慢慢熟悉的工具，不是需要一次学完的考试内容。先抓住这两条，其他遇到再查：</p>
+    <ul>
+      <li><strong>动词永远在第二位</strong>（陈述句）。Ich <strong>lerne</strong> Deutsch. / Heute <strong>lerne</strong> ich Deutsch.</li>
+      <li><strong>从句动词扔到最后</strong>。Ich weiß, dass du Deutsch <strong>lernst</strong>.</li>
+      <li><strong>背名词永远带着 der/die/das</strong>。不是 Tisch，是 der Tisch。</li>
+    </ul>
+    <p>三条够了。其他的（变格、时态、介词）碰到了再查字典或问AI，用多了自然就记住了。</p>
   </div>
 </section>
 
 <!-- ─── S3 ─── -->
 <section id="s3" class="fade-in">
   <div class="section-number">3</div>
-  <h2><span class="emoji">🧩</span>语法：抓主干，别钻牛角尖</h2>
-  <p>语法是很多人被吓跑的地方。但浩浩你别怕——<strong>语法不是用来"学完"的，是用来"边用边懂"的。</strong></p>
+  <h2>听说领先 · 不学哑巴德语</h2>
+  <p>学语言，<strong>听和说永远优先于读和写。</strong>为什么？因为语言首先是声音，其次才是文字。</p>
 
   <div class="card">
-    <span class="tag tag-red">⚠️ 最容易卡住的地方</span>
-    <h3>名词词性（der/die/das）</h3>
-    <p>每个名词都有性别，没有捷径。<br><strong>方法：背单词时永远带着冠词一起背</strong>——不是 Tisch，是 <strong>der Tisch</strong>。一开始就养成习惯。</p>
-    <div class="example-box">
-      <div class="de">der Tisch（桌子）· die Lampe（灯）· das Buch（书）</div>
-      <div class="zh">带冠词背 = 一次记住两个信息</div>
-    </div>
+    <div class="card-icon">🎧</div>
+    <h3>听 —— 每天泡耳朵</h3>
+    <p>不求听懂每个词，让大脑习惯德语的节奏和语调。每天15分钟：</p>
+    <ul>
+      <li><strong>Easy German</strong>（YouTube）—— 街头采访，有双语字幕</li>
+      <li><strong>Deutsche Welle</strong> —— 慢速新闻，分级阅读，发音最标准</li>
+      <li><strong>德语歌</strong> —— Mark Forster, Cro, 歌词简单好跟</li>
+    </ul>
   </div>
 
   <div class="card">
-    <span class="tag tag-gold">🌟 关键规则</span>
-    <h3>动词永远在第二位</h3>
-    <p>正常陈述句中，动词永远在第二位。这是德语最重要的句子结构规则。</p>
-    <div class="example-box">
-      <div class="de">Ich <strong>lerne</strong> Deutsch. （动词在第二位）<br>
-      Heute <strong>lerne</strong> ich Deutsch. （"heute" 占据了第一位，动词仍在第二位）</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="tag tag-gold">🌟 关键规则</span>
-    <h3>从句动词扔到最后</h3>
-    <p>带 dass/weil/wenn 的从句，动词移到句尾。</p>
-    <div class="example-box">
-      <div class="de">Ich weiß, dass du Deutsch <strong>lernst</strong>.<br>
-      （我知道你在学德语。—— 动词 lernst 在最后）</div>
-    </div>
+    <div class="card-icon">🗣️</div>
+    <h3>说 —— 影子跟读法</h3>
+    <p>这是最有效的口语训练法，没有之一：</p>
+    <ol>
+      <li>放一句德语（5-10秒）</li>
+      <li>暂停，模仿语调和节奏读出来</li>
+      <li>最好录下来，对比原声</li>
+    </ol>
+    <p>每天5分钟，两周后语感完全不同。</p>
   </div>
 
   <div class="quote">
-    <strong>实用建议：</strong>语法先抓住"动词第二位"+"从句动词放末尾"这两个核心。其他（变格、介词、时态）遇到时再查。一次学完所有语法 = 一定会忘。
+    <strong>关键心态：</strong>不敢开口是最大的障碍。发音不完美没关系——德国人听到你努力说德语，只会觉得"哇你真棒"。没有人会笑你。
   </div>
 </section>
 
 <!-- ─── S4 ─── -->
 <section id="s4" class="fade-in">
   <div class="section-number">4</div>
-  <h2><span class="emoji">📚</span>词汇：主题式记忆法</h2>
-  <p>浩浩，背单词最怕什么？今天背的明天全忘。试试这个方法：</p>
-
-  <div class="card">
-    <span class="tag tag-green">✅ 高效</span>
-    <h3>主题式记忆</h3>
-    <p>不要按字母表背单词。按场景主题：<strong>早餐、学校、天气、交通……</strong><br>同一主题的 10-15 个单词一起记，大脑会自动关联，记得更牢。</p>
-    <div class="example-box">
-      <div class="de">der Frühstückstisch（早餐桌）<br>
-      das Brot（面包）· die Butter（黄油）· der Käse（奶酪）· der Kaffee（咖啡）<br>
-      → 一个画面记一组词</div>
-    </div>
+  <h2>每天10分钟 &gt; 周末2小时</h2>
+  <div class="card" style="text-align:center; padding:32px;">
+    <div style="font-size:2.8rem; margin-bottom:8px;">⚡</div>
+    <h3>频率比时长重要10倍</h3>
+    <p style="font-size:1.05rem;">每天接触德语 → 大脑自动形成语言通路<br>
+    只有周末学 → 每次都在重新预热</p>
   </div>
-
   <div class="tip-grid">
     <div class="card">
-      <span class="tag tag-blue">💡 诀窍</span>
-      <h3>用已知语言学德语</h3>
-      <p>英语里很多词和德语同源：<br>Water → Wasser · Apple → Apfel · House → Haus</p>
+      <div class="card-icon">🌅</div>
+      <h3>早上3分钟</h3>
+      <p>复习5个Anki闪卡</p>
     </div>
     <div class="card">
-      <span class="tag tag-blue">💡 诀窍</span>
-      <h3>Anki 闪卡</h3>
-      <p>用间隔重复 app，每天 5 分钟复习旧词。不费脑，但效果最好。</p>
+      <div class="card-icon">🚶</div>
+      <h3>路上5分钟</h3>
+      <p>听1首德语歌或看1个短视频</p>
     </div>
     <div class="card">
-      <span class="tag tag-blue">💡 诀窍</span>
-      <h3>在句子里记单词</h3>
-      <p>背"laufen"不如背 "Ich laufe jeden Morgen." —— 语境帮你记住用法。</p>
+      <div class="card-icon">📱</div>
+      <h3>睡前5分钟</h3>
+      <p>写3句今天发生的事 / 读1篇短文</p>
     </div>
     <div class="card">
-      <span class="tag tag-blue">💡 诀窍</span>
-      <h3>贴标签</h3>
-      <p>在家里的物品上贴德语标签：der Tisch, die Tür, das Fenster。每天看到就是复习。</p>
+      <div class="card-icon">🎮</div>
+      <h3>周末30分钟</h3>
+      <p>系统复习本周遇到的语法点和词汇</p>
     </div>
   </div>
 </section>
@@ -519,177 +452,87 @@ footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
 <!-- ─── S5 ─── -->
 <section id="s5" class="fade-in">
   <div class="section-number">5</div>
-  <h2><span class="emoji">🎧</span>听与说：两条腿走路</h2>
-  <p>学语言最怕"哑巴德语"——看得懂听不懂，听得懂说不出。解决办法很简单：</p>
+  <h2>实用工具 &amp; 视听网站</h2>
+  <p>这几个就够了，不用装一堆app：</p>
 
+  <h3 style="margin-bottom:12px;">🎬 德语视听网站（免费）</h3>
   <div class="card">
-    <span class="tag tag-green">✅ 输入先行</span>
-    <h3>每天 15 分钟"泡耳朵"</h3>
-    <p>不求听懂每个词，只要让大脑习惯德语的声音节奏。推荐：</p>
-    <ul>
-      <li><strong>Easy German</strong>（YouTube）—— 街头采访，语速自然，有字幕</li>
-      <li><strong>Deutsche Welle 慢速新闻</strong> —— 语速慢，发音清晰</li>
-      <li><strong>德语歌</strong> —— Mark Forster, Cro, 歌词简单</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <span class="tag tag-blue">💡 诀窍</span>
-    <h3>影子跟读法（Shadowing）</h3>
-    <p>听一句，停，跟着读一句。模仿语调和节奏。<br>不用理解每一个词——先让嘴巴习惯德语的发音方式。</p>
+    <span class="tag tag-green">最推荐</span>
+    <h3>Deutsche Welle (dw.com/deutsch-lernen)</h3>
+    <p>德国官方的学习平台。<strong>分级阅读、慢速新闻、视频课程、播客</strong>全免费，还有配套练习。A1到C1都有，很适合有基础的学习者。</p>
     <div class="example-box">
-      <strong>怎么练：</strong><br>
-      1. 播放一句德语（5-10秒）<br>
-      2. 暂停，模仿着读出来<br>
-      3. 录下来，对比原声<br>
-      每天 5 分钟，两周后你的语感会完全不同。
+      <div class="zh">推荐栏目：<strong>Nicos Weg</strong>（视频故事课程，像追剧一样学德语）</div>
     </div>
   </div>
-
-  <div class="quote">
-    <strong>关键心态：</strong>不敢开口是最大的障碍。发音不完美没关系——德国人听到你努力说德语，只会觉得"哇你真棒"。没人会取笑你。
+  <div class="card">
+    <span class="tag tag-green">视频</span>
+    <h3>Easy German (YouTube)</h3>
+    <p>街头采访视频，真实德语对话。有德英双语字幕，语速自然。可以慢放，适合跟读练习。</p>
+  </div>
+  <div class="card">
+    <span class="tag tag-blue">词典</span>
+    <h3>DeepL / PONS</h3>
+    <p>DeepL 翻译最准；PONS 查变格和用法最全。两个配合使用。</p>
+  </div>
+  <div class="card">
+    <span class="tag tag-blue">App</span>
+    <h3>Anki（间隔重复闪卡）</h3>
+    <p>免费的单词复习app。可以导入 DW 等网站的词库，每天5分钟自动提醒复习。</p>
+  </div>
+  <div class="card">
+    <span class="tag tag-gold">🤖 小帮手</span>
+    <h3>问 Ariste（就是我了 🦞）</h3>
+    <p>语法不懂？句子不会写？发音想对比？直接问——可以帮你：解释语法、造例句、做练习、朗读课文、录音对比发音。</p>
   </div>
 </section>
 
 <!-- ─── S6 ─── -->
 <section id="s6" class="fade-in">
   <div class="section-number">6</div>
-  <h2><span class="emoji">⏰</span>每天 10 分钟 &gt; 周末 2 小时</h2>
-  <p>浩浩，这是最容易被忽略的事实：</p>
-  <div class="card" style="text-align:center; padding:32px;">
-    <div style="font-size:2.8rem; margin-bottom:8px;">⚡</div>
-    <h3>频率比时长重要 10 倍</h3>
-    <p style="font-size:1.05rem;">大脑每天接触德语 → 自动形成"语言通路"<br>
-    只有周末学 → 每次都在"重新预热"</p>
-  </div>
-
-  <div class="tip-grid">
-    <div class="card">
-      <div class="card-icon">🌅</div>
-      <h3>早上 3 分钟</h3>
-      <p>复习 5 个 Anki 单词</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🚶</div>
-      <h3>路上 5 分钟</h3>
-      <p>听一首德语歌 / 看一个 YouTube 短视频</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📱</div>
-      <h3>睡前 5 分钟</h3>
-      <p>读一篇德语短文，或写 3 句今天发生的事</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🎮</div>
-      <h3>周末 30 分钟</h3>
-      <p>系统学一个语法点 + 做 5 个练习</p>
-    </div>
-  </div>
-
-  <div class="quote">
-    <strong>记住：</strong>每天 10 分钟 × 30 天 = 5 小时高效学习。<br>
-    周末 2 小时 × 4 天 = 8 小时但效率打五折 ≈ 4 小时有效。<br>
-    少就是多。
-  </div>
-</section>
-
-<!-- ─── S7 ─── -->
-<section id="s7" class="fade-in">
-  <div class="section-number">7</div>
-  <h2><span class="emoji">🧰</span>推荐工具 &amp; 避坑指南</h2>
-
-  <h3 style="margin-bottom:12px;">🛠️ 好用的工具</h3>
-  <div class="tip-grid">
-    <div class="card">
-      <span class="tag tag-blue">📱 App</span>
-      <h3>Anki</h3>
-      <p>间隔重复闪卡。免费，可以导入别人的词库。</p>
-    </div>
-    <div class="card">
-      <span class="tag tag-blue">🌐 网站</span>
-      <h3>DeepL / Linguee</h3>
-      <p>翻译最准的德中/德英工具。Linguee 给例句。</p>
-    </div>
-    <div class="card">
-      <span class="tag tag-blue">🎬 YouTube</span>
-      <h3>Easy German</h3>
-      <p>街头采访，有德英双语字幕，真实语速。</p>
-    </div>
-    <div class="card">
-      <span class="tag tag-blue">📰 新闻</span>
-      <h3>Deutsche Welle</h3>
-      <p>慢速新闻 + 分级文章，有词汇表。</p>
-    </div>
-    <div class="card">
-      <span class="tag tag-blue">📖 词典</span>
-      <h3>PONS 或 Duden</h3>
-      <p>权威德语词典，查变格和用法。</p>
-    </div>
-    <div class="card">
-      <span class="tag tag-blue">🤖 AI</span>
-      <h3>ChatGPT / 飞书 Ariste</h3>
-      <p>不会的语法直接问，让你的 AI 用中文解释、举例子、做练习。</p>
-    </div>
-  </div>
-
-  <h3 style="margin:24px 0 12px;">⛔ 常见坑，浩浩别踩</h3>
-  <ul class="checklist">
-    <li><span class="check">✕</span> <strong>不要一开始就纠结语法书</strong>——语法是工具，不是教材。需要时再查。</li>
-    <li><span class="check">✕</span> <strong>不要追求"100% 懂了再往下"</strong>——70% 理解就继续，回头再看就通了。</li>
-    <li><span class="check">✕</span> <strong>不要只背单词不读文章</strong>——单词在句子里才有生命。</li>
-    <li><span class="check">✕</span> <strong>不要只读不开口</strong>——默读不算读。读出声来才能训练嘴巴。</li>
-    <li><span class="check">✕</span> <strong>不要和英语比</strong>——你英语学了多少年？给德语同样的耐心。</li>
-  </ul>
-</section>
-
-<!-- ─── S8 ─── -->
-<section id="s8" class="fade-in">
-  <div class="section-number">8</div>
-  <h2><span class="emoji">🎯</span>浩浩的专属 4 周计划</h2>
-  <p>别看计划长——每天真的只要 10-15 分钟。不骗你。</p>
-
+  <h2>浩浩的4周计划</h2>
+  <p>每天真的只花10-15分钟：</p>
   <table class="plan-table">
     <tr><th>周</th><th>重点</th><th>每天做什么</th><th>预计成果</th></tr>
     <tr>
       <td>🔰 第1周</td>
       <td>发音 + 基本问候</td>
-      <td>学5个字母组合发音<br>练3句问候语 (Guten Morgen, Wie geht's, Tschüss)</td>
-      <td>能读任何德语单词<br>会简单打招呼</td>
+      <td>读字母组合 + 3句问候语出声练习<br>目标：每个单词读出声</td>
+      <td>能读出任何德语单词</td>
     </tr>
     <tr>
       <td>📖 第2周</td>
-      <td>基础语法 + 主题词汇</td>
-      <td>动词第二位规则<br>背一个主题10个词（如"教室/家庭"）</td>
+      <td>动词 + 主题词汇</td>
+      <td>每天学3个动词 + 1个例句<br>背一个主题的10个词</td>
       <td>能造简单句子<br>有2个主题词库</td>
     </tr>
     <tr>
       <td>🎧 第3周</td>
-      <td>输入轰炸</td>
-      <td>影子跟读1分钟<br>看1个Easy German视频（开字幕）</td>
-      <td>耳朵开始"开"了<br>能抓句子里的关键词</td>
+      <td>听 + 读</td>
+      <td>影子跟读1分钟<br>看1个Easy German或DW视频</td>
+      <td>耳朵开始习惯德语<br>能抓句子里的关键词</td>
     </tr>
     <tr>
       <td>💬 第4周</td>
       <td>输出实战</td>
-      <td>写5句今天的事（德语）<br>用AI帮你改<br>找一句话跟读录音对比</td>
-      <td>能写简单日记<br>能说出5句完整句子</td>
+      <td>写5句今天的事（德语）<br>找一句话录音对比原声</td>
+      <td>能写简单日记<br>能说出5-10句完整句子</td>
     </tr>
   </table>
 
   <div class="card" style="text-align:center; padding:32px; margin-top:24px;">
     <div style="font-size:2.4rem; margin-bottom:8px;">🚀</div>
-    <h3>4 周后你就不一样了</h3>
-    <p>不是"会德语了"——而是"知道怎么学德语了"。</p>
-    <p>方法有了，信心有了，剩下的就是每天做一点点。</p>
+    <h3>4周后，方法通了，信心就有了</h3>
+    <p>剩下的就是每天做一点点。</p>
     <p style="margin-top:16px; color:var(--muted); font-size:.92rem;">
-      有什么不懂的，随时让舅妈来问我 🦞<br>
-      Ariste 可以帮你解释语法、造句子、做练习、读课文、甚至录音对比发音。
+      有什么不懂的，让舅妈来问我 🦞<br>
+      我可以解释语法、造句子、做练习、甚至读课文给你听。
     </p>
   </div>
 
   <div class="quote" style="border-left-color: var(--gold); background: var(--gold-soft);">
     <strong>浩浩记住：</strong>学德语不是冲刺跑，是散步。<br>
-    每天走一小步，半年后回头看——走了好远好远了。
+    每天走一小步，半年后回头看——走了好远好远了。<br><br>
+    <strong>Viel Erfolg!</strong>
   </div>
 </section>
 
@@ -698,17 +541,14 @@ footer .big-emoji { font-size: 2.4rem; margin-bottom: 12px; }
 <footer>
   <div class="big-emoji">🇩🇪🦞</div>
   <p>给浩浩的德语学习地图 · 有问题随时问舅妈</p>
-  <p style="margin-top:8px; font-size:.78rem;">Viel Erfolg! 祝你顺利！</p>
 </footer>
 
 <script>
-// ── scroll-triggered fade-in ──
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// ── nav dots ──
 const sections = document.querySelectorAll('section[id]');
 const dots = document.getElementById('navDots');
 if (sections.length > 0) {
