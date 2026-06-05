@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浪漫派的"匮乏之爱" — 课堂课件</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#faf8f3;
+  --card:#ffffff;
+  --text:#2d2d2d;
+  --text2:#666;
+  --text3:#999;
+  --accent:#8b1a1a;
+  --accent2:#5a7a9a;
+  --gold:#b8860b;
+  --border:rgba(0,0,0,.07);
+  --shadow:0 2px 20px rgba(0,0,0,.05);
+}
+
+body{
+  font-family:'Noto Sans SC','Noto Serif SC',serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow:hidden;
+  height:100vh;height:100dvh;
+  width:100vw;width:100dvw;
+  display:flex;align-items:center;justify-content:center;
+}
+
+.stage{
+  position:relative;
+  width:100vw;max-width:177.78vh;
+  height:100vh;max-height:56.25vw;
+  height:100dvh;max-height:56.25dvw;
+  background:var(--bg);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  font-size:clamp(13px,min(1.5vw,2.8vh),20px);
+}
+
+/* Top bar */
+.topbar{
+  height:44px;flex-shrink:0;
+  display:flex;align-items:center;
+  background:#1a1a1a;
+  padding:0 10px;gap:1px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  z-index:100;
+}
+.topbar::-webkit-scrollbar{display:none}
+.tb-item{
+  color:rgba(255,255,255,.45);
+  font-size:.6em;font-weight:500;
+  padding:5px 14px;border-radius:6px;
+  white-space:nowrap;cursor:pointer;
+  transition:all .2s;border:none;background:none;
+  font-family:inherit;
+}
+.tb-item:hover{color:#fff;background:rgba(255,255,255,.06)}
+.tb-item.active{color:#fff;background:rgba(255,255,255,.1);font-weight:600}
+.tb-counter{
+  margin-left:auto;color:rgba(255,255,255,.35);
+  font-size:.58em;white-space:nowrap;padding:0 10px;
+}
+.tb-fs{
+  width:28px;height:28px;border-radius:5px;
+  border:1px solid rgba(255,255,255,.15);background:none;
+  color:rgba(255,255,255,.4);cursor:pointer;
+  font-size:.65em;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* Slides */
+.slides{position:relative;flex:1;min-height:0}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:clamp(20px,3.5vw,48px) clamp(24px,5vw,72px);
+  opacity:0;pointer-events:none;
+  transition:opacity .35s;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+}
+.slide.active{opacity:1;pointer-events:auto}
+
+/* Cover */
+.cover{background:linear-gradient(170deg,#faf8f3 0%,#f2efe4 50%,#ece7d8 100%)}
+.cover-label{
+  font-size:.65em;letter-spacing:.15em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:12px;
+}
+.cover-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(1.6em,2.8em,2.8em);font-weight:900;
+  text-align:center;line-height:1.4;letter-spacing:.02em;
+  color:var(--text);
+  max-width:680px;
+}
+.cover-title em{
+  font-style:normal;color:var(--accent);
+  border-bottom:2px solid var(--accent);
+}
+.cover-sub{
+  font-size:.75em;color:var(--text2);margin-top:16px;
+  text-align:center;line-height:1.7;
+}
+.cover-line{
+  width:48px;height:2px;margin:20px auto 0;
+  background:var(--accent);
+}
+
+/* Section header */
+.sec-label{
+  font-size:.6em;letter-spacing:.12em;color:var(--text3);
+  text-transform:uppercase;margin-bottom:4px;
+}
+.sec-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(1.3em,2.2em,2.2em);font-weight:700;
+  text-align:center;color:var(--text);
+  max-width:700px;line-height:1.4;
+}
+.sec-line{width:36px;height:2px;margin:12px auto 0;background:var(--accent)}
+
+/* Content cards */
+.content-box{
+  background:var(--card);border-radius:8px;
+  padding:clamp(14px,2.2vh,24px) clamp(18px,3vw,32px);
+  box-shadow:var(--shadow);
+  max-width:780px;width:100%;
+  line-height:1.8;font-size:.82em;
+}
+.content-box h3{
+  font-family:'Noto Serif SC',serif;
+  font-size:1.1em;color:var(--accent);margin-bottom:10px;
+}
+.content-box p{margin-bottom:8px;color:var(--text);text-align:justify}
+.content-box .key{
+  color:var(--accent);font-weight:600;
+}
+
+/* Key point cards */
+.key-point{
+  background:var(--card);border-radius:8px;
+  padding:clamp(10px,1.6vh,16px) clamp(14px,2.5vw,20px);
+  box-shadow:var(--shadow);border-left:3px solid var(--accent);
+  margin-bottom:6px;
+}
+.key-point .label{
+  font-size:.6em;font-weight:700;color:var(--accent);
+  letter-spacing:.08em;margin-bottom:3px;
+}
+.key-point .title{
+  font-family:'Noto Serif SC',serif;
+  font-size:.88em;font-weight:700;color:var(--text);
+}
+.key-point .desc{
+  font-size:.72em;color:var(--text2);line-height:1.6;margin-top:3px;
+}
+
+/* Comparison two-column */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.5vh,16px);max-width:800px;width:100%}
+.compare-col{
+  background:var(--card);border-radius:8px;padding:clamp(12px,1.8vh,20px);
+  box-shadow:var(--shadow);
+}
+.compare-col.left{border-top:3px solid var(--accent)}
+.compare-col.right{border-top:3px solid var(--accent2)}
+.compare-col h4{
+  font-family:'Noto Serif SC',serif;
+  font-size:.85em;margin-bottom:8px;text-align:center;
+}
+.compare-col.left h4{color:var(--accent)}
+.compare-col.right h4{color:var(--accent2)}
+.compare-item{
+  font-size:.7em;padding:5px 0;border-bottom:1px solid var(--border);
+  display:flex;gap:6px;
+}
+.compare-item:last-child{border-bottom:none}
+.compare-item .dim{font-size:.85em;color:var(--text3);white-space:nowrap;min-width:42px}
+.compare-item .val{color:var(--text);line-height:1.5}
+
+/* Quote */
+.quote-block{
+  background:linear-gradient(135deg,#fdfaf3,#f8f4e8);
+  border-left:3px solid var(--gold);
+  padding:clamp(10px,1.6vh,16px) clamp(14px,2.5vw,20px);
+  border-radius:0 6px 6px 0;
+  margin:8px 0;
+  font-family:'Noto Serif SC',serif;
+  font-style:italic;font-size:.78em;color:var(--text2);
+  line-height:1.7;
+}
+.quote-block .src{font-size:.8em;color:var(--text3);font-style:normal;margin-top:4px}
+
+/* Flow arrow */
+.flow{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(4px,1vw,12px);flex-wrap:wrap;
+  margin:10px 0;
+}
+.flow-item{
+  background:var(--card);padding:6px 16px;border-radius:20px;
+  font-size:.7em;font-weight:500;box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.flow-arrow{color:var(--accent);font-size:.8em;font-weight:700}
+
+/* Grid */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.2vh,12px);max-width:800px;width:100%}
+
+/* Bottom nav */
+.nav{
+  height:40px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  gap:2px;padding:0 12px 6px;
+}
+.nav-dot{
+  width:24px;height:3px;border-radius:2px;
+  background:rgba(0,0,0,.1);cursor:pointer;
+  transition:all .25s;border:none;
+}
+.nav-dot.active{background:var(--accent);width:32px}
+.nav-dot:hover{background:rgba(0,0,0,.2)}
+
+/* Click zones */
+.click-left,.click-right{
+  position:absolute;top:0;bottom:0;width:12%;z-index:10;cursor:pointer;
+}
+.click-left{left:0}.click-right{right:0}
+
+/* Responsive */
+@media(max-width:820px){
+  .stage{
+    max-width:100vw;max-height:100vh;
+    max-width:100dvw;max-height:100dvh;
+    font-size:clamp(12px,3.5vw,18px);
+  }
+  .compare-grid,.grid-2{grid-template-columns:1fr}
+  .content-box{font-size:.78em}
+}
+@media(max-width:480px){
+  .stage{font-size:clamp(11px,4vw,15px)}
+  .cover-title{font-size:clamp(1.2em,5.5vw,1.7em)}
+  .sec-title{font-size:clamp(1em,5vw,1.5em)}
+  .click-left,.click-right{width:18%}
+  .flow-item{padding:4px 10px;font-size:.65em}
+}
+@media(min-width:1200px){
+  .stage{font-size:clamp(16px,min(1.3vw,2.5vh),22px)}
+}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+<!-- Top bar -->
+<div class="topbar" id="topbar">
+  <button class="tb-item active" data-slide="0">封面</button>
+  <button class="tb-item" data-slide="1">核心问题</button>
+  <button class="tb-item" data-slide="2">浪漫派</button>
+  <button class="tb-item" data-slide="3">尼采</button>
+  <button class="tb-item" data-slide="4">对勘</button>
+  <button class="tb-item" data-slide="5">后现代</button>
+  <button class="tb-item" data-slide="6">当代回应</button>
+  <span class="tb-counter" id="counter">1 / 7</span>
+  <button class="tb-fs" onclick="toggleFS()" title="全屏 F">⛶</button>
+</div>
+
+<!-- Slides -->
+<div class="slides" id="slides">
+
+<!-- S0: Cover -->
+<div class="slide cover active" data-index="0">
+  <div class="cover-label">Philosophie · Romantik</div>
+  <div class="cover-title">
+    浪漫派的<em>"匮乏之爱"</em>
+  </div>
+  <div class="cover-sub">
+    从柏拉图到尼采<br>以及一种后现代反思
+  </div>
+  <div class="cover-line"></div>
+</div>
+
+<!-- S1: 核心问题 -->
+<div class="slide" data-index="1">
+  <div class="sec-label">Zentrale Frage</div>
+  <div class="sec-title">"匮乏之爱"与"充盈之爱"<br>在何种意义上构成了理论的根本分野？</div>
+  <div class="sec-line"></div>
+  <div style="max-width:700px;width:100%;margin-top:clamp(14px,2.5vh,24px)">
+    <div class="flow">
+      <div class="flow-item">柏拉图<br>理念论</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">早期浪漫派<br>匮乏之爱</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">尼采<br>充盈之爱</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">后现代<br>解构</div>
+    </div>
+    <div class="content-box" style="margin-top:14px;font-size:.78em">
+      <p><span class="key">四个阶段：</span></p>
+      <p>① <span class="key">柏拉图→浪漫派</span> — 理性主义中柏拉图"理念论"的继承与转化，确定"匮乏之爱"的形而上学根源</p>
+      <p>② <span class="key">尼采的反叛</span> — 对柏拉图主义的祛魅，结合虚无主义否定最高价值</p>
+      <p>③ <span class="key">二者对勘</span> — 为后现代的解构与再建构开辟道路</p>
+      <p>④ <span class="key">后现代反思</span> — 在资本主义符号化语境中探讨当代处境，审视意义重建可能</p>
+    </div>
+  </div>
+</div>
+
+<!-- S2: 早期浪漫派 · 匮乏之爱 -->
+<div class="slide" data-index="2">
+  <div class="sec-label">Frühromantik</div>
+  <div class="sec-title">柏拉图主义的继承与转化<br>早期浪漫派的"匮乏之爱"</div>
+  <div class="sec-line"></div>
+  <div style="max-width:760px;width:100%;margin-top:clamp(10px,2vh,20px)">
+    <div class="key-point">
+      <div class="label">形而上学根源</div>
+      <div class="title">柏拉图《会饮篇》：爱的本质是对尚未拥有之物的渴望</div>
+      <div class="desc">"爱情是有对象的，而这种对象现在还没有得到……美就是爱情所缺乏的，而且还没有得到。"</div>
+    </div>
+    <div class="key-point">
+      <div class="label">浪漫派转向</div>
+      <div class="title">启蒙理性将世界"祛魅"为因果机械 → 浪漫派在理性基础上为感性建立哲学根基</div>
+      <div class="desc">不同于"狂飙突进"的本能冲动，浪漫派的感性是"理性中的感性"——站在启蒙理性的基础上批判启蒙理性的独断</div>
+    </div>
+    <div class="key-point">
+      <div class="label">核心悖论</div>
+      <div class="title">"匮乏之爱"的结构：用有限概念把握无限 = 康德式的二律背反</div>
+      <div class="desc">施勒格尔："任何浪漫派作品最本质的特征是它的生成。事实上，它从未完成。" —— 爱永远只在完成中的过程里，不可抵达</div>
+    </div>
+    <div class="key-point">
+      <div class="label">异化机制</div>
+      <div class="title">教化(Bildung)→ 对具体对象的爱被"异化"为对"绝对整体"的渴求</div>
+      <div class="desc">爱的真正动力不是具体对象，而是"绝对整体"不可抵达所造成的那个<strong>匮乏间隔</strong>本身</div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: 尼采 · 充盈之爱 -->
+<div class="slide" data-index="3">
+  <div class="sec-label">Nietzsche</div>
+  <div class="sec-title">对柏拉图主义的祛魅<br>尼采的"充盈之爱"</div>
+  <div class="sec-line"></div>
+  <div style="max-width:760px;width:100%;margin-top:clamp(10px,2vh,20px)">
+    <div class="key-point" style="border-left-color:var(--accent2)">
+      <div class="label">根本否定</div>
+      <div class="title">浪漫派向虚空的彼岸诉诸爱 = 虚无且病态</div>
+      <div class="desc">浪漫派把"上帝"搬出来逃避直面虚无主义的恐惧，沉浸在自我构建的空中楼阁中</div>
+    </div>
+    <div class="key-point" style="border-left-color:var(--accent2)">
+      <div class="label">上帝已死</div>
+      <div class="title">统一的、恒定的价值与标准消逝 → 生命的本质在于自我的不断超越</div>
+      <div class="desc">不用另一种虚无强行粉饰——人的生命历程关注自我实现的过程，结果只是促成过程延续的环节</div>
+    </div>
+    <div class="key-point" style="border-left-color:var(--accent2)">
+      <div class="label">爱命运 · Amor Fati</div>
+      <div class="title">在虚无中充盈自身 → "超人"在自我满溢中向同伴不求回报地输送生命能量</div>
+      <div class="desc">"我爱你，是因为我自身已足够丰盈而愿意与你分享，而不是我匮乏地需要某个存在来弥补内心的空缺。"</div>
+    </div>
+    <div class="key-point" style="border-left-color:var(--accent2)">
+      <div class="label">永恒轮回</div>
+      <div class="title">只在每一个"此刻"的肯定中完成自身</div>
+      <div class="desc">"爱命运"即愿意在任何时刻，在永恒轮回中一丝不变地重来——从"匮乏"到"充盈"的彻底翻转</div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: 对勘 -->
+<div class="slide" data-index="4">
+  <div class="sec-label">Vergleich</div>
+  <div class="sec-title">匮乏之爱 vs 充盈之爱<br>根本分歧</div>
+  <div class="sec-line"></div>
+  <div style="max-width:760px;width:100%;margin-top:clamp(10px,2vh,20px)">
+    <div class="compare-grid">
+      <div class="compare-col left">
+        <h4>早期浪漫派 · 匮乏之爱</h4>
+        <div class="compare-item">
+          <span class="dim">方向</span>
+          <span class="val">指向超越性彼岸——不存在的"亚特兰蒂斯"</span>
+        </div>
+        <div class="compare-item">
+          <span class="dim">动力</span>
+          <span class="val">"灵魂的互补"——从他者获取自身所欠缺的</span>
+        </div>
+        <div class="compare-item">
+          <span class="dim">目的</span>
+          <span class="val">永远被推迟——被不可抵达的"绝对整体"拖拽</span>
+        </div>
+        <div class="compare-item">
+          <span class="dim">本质</span>
+          <span class="val">索取 · 渴望 · 匮乏</span>
+        </div>
+      </div>
+      <div class="compare-col right">
+        <h4>尼采 · 充盈之爱</h4>
+        <div class="compare-item">
+          <span class="dim">方向</span>
+          <span class="val">彻底转回此岸——拥抱唯一真实的生成</span>
+        </div>
+        <div class="compare-item">
+          <span class="dim">动力</span>
+          <span class="val">自身完满后无法抑制的赠予——不求回报</span>
+        </div>
+        <div class="compare-item">
+          <span class="dim">目的</span>
+          <span class="val">在每一个"此刻"的肯定中完成自身</span>
+        </div>
+        <div class="compare-item">
+          <span class="dim">本质</span>
+          <span class="val">赠予 · 满溢 · 充盈</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: 后现代解构 -->
+<div class="slide" data-index="5">
+  <div class="sec-label">Postmoderne</div>
+  <div class="sec-title">资本主义下的后现代解构</div>
+  <div class="sec-line"></div>
+  <div style="max-width:740px;width:100%;margin-top:clamp(10px,2vh,20px)">
+    <div class="key-point">
+      <div class="label">后现代诊断</div>
+      <div class="title">任何以统一理论统摄人类思想的行为 = 话语暴力与支配</div>
+      <div class="desc">浪漫派与尼采的方法论都依赖"二元对立"（匮乏/充盈、索取/赠与、彼岸/此岸）——在后现代视野中，这种非此即彼的框架本身是可疑的</div>
+    </div>
+    <div class="key-point">
+      <div class="label">符号拟像</div>
+      <div class="title">"原件"破碎 → 能指与所指断裂 → 资本将"爱"彻底拟像化</div>
+      <div class="desc">钻石的承诺、烛光晚餐、社交媒体"官宣"——个体通过模仿外在拟像来反向界定自身的"爱"</div>
+    </div>
+    <div class="key-point">
+      <div class="label">创伤性剩余</div>
+      <div class="title">疾病、衰老、冲突、死亡——符号网络永远无法缝合的粗粝现实</div>
+      <div class="desc">正是这种"剩余"将个体从消费主义的迷幻中拽回，迫使人们在符号系统的瘫痪处重新审视自我</div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: 当代回应 -->
+<div class="slide" data-index="6">
+  <div class="sec-label">Reflektive Tiefe</div>
+  <div class="sec-title">穿过幻灭的反思性深度</div>
+  <div class="sec-line"></div>
+  <div style="max-width:740px;width:100%;margin-top:clamp(10px,2vh,20px)">
+    <div class="key-point" style="border-left-color:var(--gold)">
+      <div class="label">借火浪漫派</div>
+      <div class="title">不是对彼岸的虚妄执念，而是对不完美、笨拙与矛盾张力的原初向往</div>
+      <div class="desc">同时必须明晰"匮乏之爱"被后现代解构后极易倒向符号化温床的潜在可能</div>
+    </div>
+    <div class="key-point" style="border-left-color:var(--gold)">
+      <div class="label">重返尼采</div>
+      <div class="title">不是复活全知全能的绝对主体，而是走向"明知虚无却依然选择赋予意义"的悲剧性充盈</div>
+      <div class="desc">"明知爱是拟像，却依然要用肉身对抗荒原"的英雄主义姿态</div>
+    </div>
+    <div class="content-box" style="margin-top:14px;text-align:center">
+      <p style="font-family:'Noto Serif SC',serif;font-size:.9em;color:var(--accent);text-align:center">
+        爱不再是消费社会里明码标价的符号互文，<br>
+        而是主体在<span class="key">明知语言之有限、肉身之残缺、历史之偶然</span>的前提下，<br>
+        依然选择去承受、去相守、去自发赠予的生命实践。
+      </p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /slides -->
+
+<!-- Bottom nav -->
+<div class="nav" id="navDots"></div>
+
+<!-- Click zones -->
+<div class="click-left" id="clickLeft"></div>
+<div class="click-right" id="clickRight"></div>
+
+</div><!-- /stage -->
+
+<script>
+const TOTAL = 7;
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+const topItems = document.querySelectorAll('.tb-item');
+const counter = document.getElementById('counter');
+const navDots = document.getElementById('navDots');
+const stage = document.getElementById('stage');
+
+for(let i=0;i<TOTAL;i++){
+  const d=document.createElement('button');
+  d.className='nav-dot'+(i===0?' active':'');
+  d.onclick=()=>go(i);
+  navDots.appendChild(d);
+}
+
+function go(n){
+  if(n<0||n>=TOTAL)return;cur=n;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===n));
+  topItems.forEach((t,i)=>t.classList.toggle('active',parseInt(t.dataset.slide)===n));
+  document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===n));
+  counter.textContent=(n+1)+' / '+TOTAL;
+  slides[n].scrollTop=0;
+}
+function next(){go(cur+1)}
+function prev(){go(cur-1)}
+
+topItems.forEach(t=>t.addEventListener('click',()=>go(parseInt(t.dataset.slide))));
+
+document.getElementById('clickLeft').addEventListener('click',prev);
+document.getElementById('clickRight').addEventListener('click',next);
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();next()}
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();prev()}
+  else if(e.key==='f'||e.key==='F'){e.preventDefault();toggleFS()}
+  else if(e.key==='Home'){e.preventDefault();go(0)}
+  else if(e.key==='End'){e.preventDefault();go(TOTAL-1)}
+});
+
+let tsX=0,tsY=0;
+stage.addEventListener('touchstart',e=>{tsX=e.touches[0].clientX;tsY=e.touches[0].clientY},{passive:true});
+stage.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tsX,dy=e.changedTouches[0].clientY-tsY;
+  if(Math.abs(dx)<Math.abs(dy)||Math.abs(dx)<40)return;
+  dx>0?prev():next();
+});
+
+slides.forEach(s=>s.addEventListener('wheel',e=>{
+  const atTop=s.scrollTop<=1,atBottom=s.scrollTop+s.clientHeight>=s.scrollHeight-2;
+  if(e.deltaY>0&&atBottom){e.preventDefault();next()}
+  else if(e.deltaY<0&&atTop){e.preventDefault();prev()}
+},{passive:false}));
+
+function toggleFS(){
+  document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});
+}
+go(0);
+</script>
+</body>
+</html>
